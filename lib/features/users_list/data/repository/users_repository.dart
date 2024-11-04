@@ -8,6 +8,7 @@ class UsersRepository extends BaseUsersRepository {
 
   @override
   Future<List<User>> getUsersList() async {
+    
     final result = await _baseUserRemoteDataSource.getUsersList();
     return result;
   }

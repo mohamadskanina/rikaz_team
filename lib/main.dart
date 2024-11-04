@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'features/users_list/presentation/screens/home_page.dart';
+import 'features/users_list/presentation/screens/view_users_list.dart';
 
 void main() {
   runApp(const MyApp());
