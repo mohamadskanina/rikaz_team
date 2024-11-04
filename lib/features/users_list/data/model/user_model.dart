@@ -27,17 +27,7 @@ class UserModel extends User {
     );
   }
 
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'id': id,
-      'email': email,
-      'first_name': firstName,
-      'last_name': lastName,
-      'avatar': avatar,
-    };
-  }
-
-  factory UserModel.fromMap(Map<String, dynamic> map) {
+  factory UserModel.fromJson(Map<String, dynamic> map) {
     return UserModel(
       id: map['id'] as int,
       email: map['email'] as String,
@@ -47,9 +37,6 @@ class UserModel extends User {
     );
   }
 
-  String toJson() => json.encode(toMap());
-
-  factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   bool get stringify => true; 

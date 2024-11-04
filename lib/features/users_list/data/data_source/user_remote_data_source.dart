@@ -11,10 +11,10 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
   @override
   Future<List<UserModel>> getUsersList() async {
     try {
-      final response = await Dio().get(ApiConstances.loginUrl);
-      // print(response.data);
+      final response = await Dio().get(ApiConstances.getUsersListUrl);
+      print(response.data);
       return List<UserModel>.from(
-          (response.data as List).map((e) => UserModel.fromJson(e)));
+          (response.data['data'] as List).map((e) => UserModel.fromJson(e)));
     } on DioException catch (e) {
       print(e.response);
       throw Exception('Failed to login: $e');

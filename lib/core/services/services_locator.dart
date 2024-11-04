@@ -13,7 +13,6 @@ final sl = GetIt.instance;
 class ServicesLocator {
   void init() {
     _userSL();
-
   }
 
   void _userSL() {

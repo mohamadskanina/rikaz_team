@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'core/services/services_locator.dart';
 import 'features/users_list/presentation/screens/view_users_list.dart';
 
 void main() {
+  ServicesLocator().init();
   runApp(const MyApp());
 }
 
@@ -17,8 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const ViewUsersList(),
     );
   }
 }
-

@@ -1,30 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+import '../../../../core/services/services_locator.dart';
+import '../controller/bloc/user_bloc.dart';
+import '../widgets/user_list_widget.dart';
 
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class ViewUsersList extends StatelessWidget {
+  const ViewUsersList({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('users list'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
+    return BlocProvider(
+      create: (context) => sl<UserBloc>()
+        ..add(GetUsersEvent()),
+      child:  Scaffold(
+        appBar: AppBar(
+        title: Text("Users Managment")),
+        body: UserListWidget(),
       ),
     );
   }
