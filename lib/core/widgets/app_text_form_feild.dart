@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
 
 class AppTextFormField extends StatelessWidget {
@@ -36,7 +37,7 @@ class AppTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         isDense: true,
         contentPadding: contentPadding ??
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(

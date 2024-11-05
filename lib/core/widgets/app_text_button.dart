@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextButton extends StatelessWidget {
   final double? borderRadius;
@@ -37,12 +38,12 @@ class AppTextButton extends StatelessWidget {
         ),
         padding: WidgetStatePropertyAll<EdgeInsets>(
           EdgeInsets.symmetric(
-            horizontal: horizontalPadding ?? 12,
-            vertical: verticalPadding ?? 14,
+            horizontal: horizontalPadding?.w ?? 12.w,
+            vertical: verticalPadding?.h ?? 14.h,
           ),
         ),
         fixedSize: WidgetStatePropertyAll(
-          Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 50),
+          Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 50.h),
         ),
       ),
       onPressed: onPressed,

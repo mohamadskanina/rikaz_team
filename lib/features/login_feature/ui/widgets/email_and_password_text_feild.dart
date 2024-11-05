@@ -28,6 +28,7 @@ class _EmailAndPasswordTextFeildState extends State<EmailAndPasswordTextFeild> {
         ),
         AppTextFormField(
           hintText: "Password",
+          isObscureText: isObscureText,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return "Please enter a valid password";
