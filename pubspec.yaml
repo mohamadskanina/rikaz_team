@@ -40,6 +40,8 @@ dependencies:
   freezed_annotation: any
   json_serializable: any
   flutter_screenutil: ^5.9.3
+  dartz: ^0.10.1
+  pretty_dio_logger: ^1.4.0
 
 
 dev_dependencies:

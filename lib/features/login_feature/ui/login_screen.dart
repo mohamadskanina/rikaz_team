@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rikaz_team/core/helpers/space_helper.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
 import 'package:rikaz_team/core/widgets/app_text_button.dart';
 import 'package:rikaz_team/features/login_feature/ui/widgets/email_and_password_text_feild.dart';
@@ -9,7 +10,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height;
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -17,13 +17,9 @@ class LoginScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const LoginTextTop(),
-            SizedBox(
-              height: 0.036 * height,
-            ),
+            verticalspace(36),
             const EmailAndPasswordTextFeild(),
-            const SizedBox(
-              height: 10,
-            ),
+            verticalspace(10),
             Align(
               alignment: AlignmentDirectional.centerEnd,
               child: Text(
@@ -31,9 +27,7 @@ class LoginScreen extends StatelessWidget {
                 style: TextStyles.font13BlueRegular,
               ),
             ),
-            const SizedBox(
-              height: 15,
-            ),
+            verticalspace(15),
             AppTextButton(
               buttonText: "Login",
               textStyle: TextStyles.font16WhiteSemiBold,
