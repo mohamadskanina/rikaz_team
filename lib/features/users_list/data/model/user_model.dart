@@ -1,7 +1,9 @@
-import 'dart:convert';
-
 import 'package:rikaz_team/features/users_list/domain/entities/user.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'user_model.g.dart'; // Required for generated code
+
+@JsonSerializable()
 class UserModel extends User {
   UserModel(
       {required super.id,
@@ -10,7 +12,6 @@ class UserModel extends User {
       required super.lastName,
       required super.avatar});
 
-     
   UserModel copyWith({
     int? id,
     String? email,
@@ -27,17 +28,8 @@ class UserModel extends User {
     );
   }
 
-  factory UserModel.fromJson(Map<String, dynamic> map) {
-    return UserModel(
-      id: map['id'] as int,
-      email: map['email'] as String,
-      firstName: map['first_name'] as String,
-      lastName: map['last_name'] as String,
-      avatar: map['avatar'] as String,
-    );
-  }
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 
-
-  @override
-  bool get stringify => true; 
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }

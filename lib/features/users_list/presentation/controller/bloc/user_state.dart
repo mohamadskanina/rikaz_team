@@ -1,34 +1,14 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-part of 'user_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../../domain/entities/user.dart';
 
-class UserState extends Equatable {
-  final List<User> getUsers;
-  final RequestState getUsersState;
-  final String getUsersMessage;
+part 'user_state.freezed.dart';
 
-  const UserState({
-    this.getUsers = const [],
-    this.getUsersState = RequestState.loading,
-    this.getUsersMessage = '',
-  });
+@freezed
+class UserState with _$UserState {
+  const factory UserState({
+    @Default(<User>[]) List<User> users,
+    @Default(false) bool loading,
+    @Default(false) bool errorr,
+  }) = _UserState;
 
-  @override
-  List<Object> get props {
-    return [
-      getUsers,
-      getUsersState,
-      getUsersMessage,
-    ];
-  }
-
-  UserState copyWith({
-    List<User>? getUsers,
-    RequestState? getUsersState,
-    String? getUsersMessage,
-  }) {
-    return UserState(
-        getUsers: getUsers ?? this.getUsers,
-        getUsersState: getUsersState ?? this.getUsersState,
-        getUsersMessage: getUsersMessage ?? this.getUsersMessage);
-  }
 }
