@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rikaz_team/features/users_list/presentation/screens/update_user_info.dart';
 
 import '../../domain/entities/user.dart';
 
@@ -18,8 +19,7 @@ class UserListTileWidget extends StatelessWidget {
         child: ListTile(
           leading: CachedNetworkImage(
             imageUrl: user.avatar,
-            placeholder: (context, url) =>
-                const CircularProgressIndicator(),
+            placeholder: (context, url) => const CircularProgressIndicator(),
             errorWidget: (context, url, error) =>
                 const Icon(Icons.error, color: Colors.red),
             imageBuilder: (context, imageProvider) => CircleAvatar(
@@ -47,7 +47,11 @@ class UserListTileWidget extends StatelessWidget {
               Icons.more_vert,
               color: Colors.grey[600],
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return UpdateUserInfo(user: user);
+              }));
+            },
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
         ),

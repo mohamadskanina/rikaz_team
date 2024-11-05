@@ -7,6 +7,7 @@ import '../../../../core/network/error_message.dart';
 
 abstract class BaseUserRemoteDataSource {
   Future<List<UserModel>> getUsersList();
+  Future<void> updateUserInfo({required UserModel user});
 }
 
 class UserRemoteDataSource extends BaseUserRemoteDataSource {
@@ -25,6 +26,23 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
     } catch (e) {
       print('unexpected error  : $e');
       throw Exception('Failed to get users:$e');
+    }
+  }
+  
+  @override
+  Future<void> updateUserInfo({required UserModel user}) async {
+    try {
+      await Dio().put(ApiConstances.getUsersListUrl,data: user.toJson());
+      // print(response.data);
+
+    } on DioException catch (e) {
+      print(e.error);
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.fromJson(e.response?.data),
+          statusCode: e.response?.statusCode);
+    } catch (e) {
+      print('unexpected error  : $e');
+      throw Exception('Failed to update user info:$e');
     }
   }
 }

@@ -4,7 +4,7 @@ import '../../features/users_list/data/data_source/user_remote_data_source.dart'
 import '../../features/users_list/data/repository/users_repository.dart';
 import '../../features/users_list/domain/repository/base_users_repository.dart';
 import '../../features/users_list/domain/usecase/get_users.dart';
-import '../../features/users_list/presentation/controller/bloc/user_bloc.dart';
+import '../../features/users_list/presentation/controller/view_user_bloc/user_bloc.dart';
 
 
 
