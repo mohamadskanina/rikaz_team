@@ -23,8 +23,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     final result = await getUsersUseCase(const NoParameters());
     // print(result);
     result.fold(
-        (l) =>emit(state.copyWith(errorMessage: l.message, error: true)),
-        (r) =>emit(state.copyWith(users: r, loading: false)));
-    
+        (l) => emit(state.copyWith(
+            errorMessage: l.message, error: true, loading: false)),
+        (r) => emit(state.copyWith(users: r, loading: false,error: false)));
   }
 }

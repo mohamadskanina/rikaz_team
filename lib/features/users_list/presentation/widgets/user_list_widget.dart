@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:rikaz_team/features/users_list/presentation/widgets/user_list_tile_widget.dart';
 
 import '../controller/bloc/user_bloc.dart';
 import '../controller/bloc/user_state.dart';
@@ -16,8 +17,15 @@ class _UserListWidgetState extends State<UserListWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UserBloc, UserState>(
-      buildWhen: (previous, current) => previous.loading != current.loading,
+      buildWhen: (previous, current) =>
+          previous.loading != current.loading ||
+          previous.error != current.error,
       builder: (context, state) {
+        if (state.error) {
+          return Center(
+              child:
+                  Lottie.asset('assets/error.json', width: 300, height: 300));
+        }
         return state.loading
             ? Center(
                 child: Lottie.asset('assets/loading.json',
@@ -25,17 +33,14 @@ class _UserListWidgetState extends State<UserListWidget> {
             : ListView.builder(
                 itemCount: state.users.length,
                 itemBuilder: (context, i) {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      radius: 25,
-                      backgroundImage: NetworkImage(state.users[i].avatar),
-                    ),
-                    title: Text(
-                      state.users[i].first_name + state.users[i].last_name,
-                      style: TextStyle(
-                          color: Colors.blue[700], fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(state.users[i].email),
+                  return Column(
+                    children: [
+                      UserListTileWidget(user: state.users[i]),
+                      const Divider(
+                        indent: 70,
+                        height: 1,
+                      ),
+                    ],
                   );
                 });
       },
