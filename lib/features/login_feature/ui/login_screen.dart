@@ -6,6 +6,7 @@ import 'package:rikaz_team/core/theming/styles.dart';
 import 'package:rikaz_team/core/widgets/app_text_button.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_event.dart';
+import 'package:rikaz_team/features/login_feature/ui/widgets/dont_have_account.dart';
 import 'package:rikaz_team/features/login_feature/ui/widgets/email_and_password_text_feild.dart';
 import 'package:rikaz_team/features/login_feature/ui/widgets/login_bloc_listiner.dart';
 import 'package:rikaz_team/features/login_feature/ui/widgets/login_text_top.dart';
@@ -26,8 +27,10 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // wellcome back in top screen
               const LoginTextTop(),
               verticalspace(36),
+              // login form --> email and password
               const EmailAndPasswordTextFeild(),
               verticalspace(15),
               Align(
@@ -38,6 +41,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               verticalspace(30),
+              // login button 
               AppTextButton(
                 buttonText: "Login",
                 textStyle: TextStyles.font16WhiteSemiBold,
@@ -45,6 +49,8 @@ class LoginScreen extends StatelessWidget {
                   validateThenDoLogin(context);
                 },
               ),
+              verticalspace(30),
+              const DontHaveAccountText(),
               const LoginBlocListiner(),
             ],
           ),

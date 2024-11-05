@@ -19,5 +19,5 @@ Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
       'token': instance.token,
       'status': instance.status,
       'code': instance.code,
-      'message': instance.error,
+      'error': instance.error,
     };

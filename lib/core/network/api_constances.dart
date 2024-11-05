@@ -8,4 +8,7 @@ class ApiConstances {
   // Login
   static const String loginUrl = "$_baseUrl/login";
 
+  // Create User
+  static const String createUserUrl = "$_baseUrl/users";
+
 }
