@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,10 +16,16 @@ class UserListTileWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.r),
         color: Colors.white,
         child: ListTile(
-          leading: CircleAvatar(
-            radius: 30.r,
-            backgroundColor: Colors.grey[200],
-            backgroundImage: NetworkImage(user.avatar),
+          leading: CachedNetworkImage(
+            imageUrl: user.avatar,
+            placeholder: (context, url) =>
+                const CircularProgressIndicator(),
+            errorWidget: (context, url, error) =>
+                const Icon(Icons.error, color: Colors.red),
+            imageBuilder: (context, imageProvider) => CircleAvatar(
+              backgroundImage: imageProvider,
+              radius: 30.r,
+            ),
           ),
           title: Text(
             '${user.first_name} ${user.last_name}',
