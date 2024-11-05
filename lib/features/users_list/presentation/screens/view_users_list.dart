@@ -18,7 +18,7 @@ class ViewUsersList extends StatelessWidget {
           style:
               TextStyle(color: Colors.blue[800], fontWeight: FontWeight.bold),
         )),
-        body: UserListWidget(),
+        body: const UserListWidget(),
       ),
     );
   }
