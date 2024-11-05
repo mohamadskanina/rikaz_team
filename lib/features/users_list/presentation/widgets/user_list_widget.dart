@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rikaz_team/features/users_list/presentation/widgets/user_list_tile_widget.dart';
 
@@ -23,23 +24,19 @@ class _UserListWidgetState extends State<UserListWidget> {
       builder: (context, state) {
         if (state.error) {
           return Center(
-              child:
-                  Lottie.asset('assets/error.json', width: 300, height: 300));
+              child: Lottie.asset('assets/error.json',
+                  width: 300.w, height: 300.h));
         }
         return state.loading
             ? Center(
                 child: Lottie.asset('assets/loading.json',
-                    width: 200, height: 200))
+                    width: 200.w, height: 200.h))
             : ListView.builder(
                 itemCount: state.users.length,
                 itemBuilder: (context, i) {
                   return Column(
                     children: [
                       UserListTileWidget(user: state.users[i]),
-                      const Divider(
-                        indent: 70,
-                        height: 1,
-                      ),
                     ],
                   );
                 });
