@@ -12,7 +12,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
   Future<List<UserModel>> getUsersList() async {
     try {
       final response = await Dio().get(ApiConstances.getUsersListUrl);
-      print(response.data);
+      // print(response.data);
       return List<UserModel>.from(
           (response.data['data'] as List).map((e) => UserModel.fromJson(e)));
     } on DioException catch (e) {

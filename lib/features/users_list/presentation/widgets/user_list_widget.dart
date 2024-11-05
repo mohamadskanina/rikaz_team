@@ -30,8 +30,11 @@ class _UserListWidgetState extends State<UserListWidget> {
                       radius: 25,
                       backgroundImage: NetworkImage(state.users[i].avatar),
                     ),
-                    title: Text(state.users[i].firstName +
-                        state.users[i].lastName),
+                    title: Text(
+                      state.users[i].firstName + state.users[i].lastName,
+                      style: TextStyle(
+                          color: Colors.blue[700], fontWeight: FontWeight.bold),
+                    ),
                     subtitle: Text(state.users[i].email),
                   );
                 });

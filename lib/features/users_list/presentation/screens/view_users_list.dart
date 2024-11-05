@@ -10,11 +10,14 @@ class ViewUsersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<UserBloc>()
-        ..add(GetUsersEvent()),
-      child:  Scaffold(
+      create: (context) => sl<UserBloc>()..add(GetUsersEvent()),
+      child: Scaffold(
         appBar: AppBar(
-        title: Text("Users Managment")),
+            title: Text(
+          "Users Managment",
+          style:
+              TextStyle(color: Colors.blue[800], fontWeight: FontWeight.bold),
+        )),
         body: UserListWidget(),
       ),
     );
