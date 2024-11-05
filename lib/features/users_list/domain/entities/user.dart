@@ -5,15 +5,15 @@ import 'package:equatable/equatable.dart';
 class User extends Equatable {
   int id;
   String email;
-  String firstName;
-  String lastName;
+  String first_name;
+  String last_name;
   String avatar;
 
   User({
     required this.id,
     required this.email,
-    required this.firstName,
-    required this.lastName,
+    required this.first_name,
+    required this.last_name,
     required this.avatar,
   });
   
@@ -22,8 +22,8 @@ class User extends Equatable {
     return [
       id,
       email,
-      firstName,
-      lastName,
+      first_name,
+      last_name,
       avatar,
     ];
   }

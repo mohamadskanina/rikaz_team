@@ -8,22 +8,22 @@ class UserModel extends User {
   UserModel(
       {required super.id,
       required super.email,
-      required super.firstName,
-      required super.lastName,
+      required super.first_name,
+      required super.last_name,
       required super.avatar});
 
   UserModel copyWith({
     int? id,
     String? email,
-    String? firstName,
-    String? lastName,
+    String? first_name,
+    String? last_name,
     String? avatar,
   }) {
     return UserModel(
       id: id ?? this.id,
       email: email ?? this.email,
-      firstName: firstName ?? this.firstName,
-      lastName: lastName ?? this.lastName,
+      first_name: first_name ?? this.first_name,
+      last_name: last_name ?? this.last_name,
       avatar: avatar ?? this.avatar,
     );
   }

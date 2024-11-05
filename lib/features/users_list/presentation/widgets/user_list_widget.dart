@@ -31,7 +31,7 @@ class _UserListWidgetState extends State<UserListWidget> {
                       backgroundImage: NetworkImage(state.users[i].avatar),
                     ),
                     title: Text(
-                      state.users[i].firstName + state.users[i].lastName,
+                      state.users[i].first_name + state.users[i].last_name,
                       style: TextStyle(
                           color: Colors.blue[700], fontWeight: FontWeight.bold),
                     ),

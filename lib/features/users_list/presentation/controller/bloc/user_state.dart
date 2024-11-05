@@ -8,7 +8,8 @@ class UserState with _$UserState {
   const factory UserState({
     @Default(<User>[]) List<User> users,
     @Default(false) bool loading,
-    @Default(false) bool errorr,
+    @Default(false) bool error,
+    @Default('') String errorMessage,
   }) = _UserState;
 
 }

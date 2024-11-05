@@ -20,8 +20,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   FutureOr<void> _getUsersHandler(
       GetUsersEvent event, Emitter<UserState> emit) async {
     emit(state.copyWith(loading: true));
-    final data = await getUsersUseCase(const NoParameters());
+    final result = await getUsersUseCase(const NoParameters());
     // print(result);
-    emit(state.copyWith(users: data, loading: false));
+    result.fold(
+        (l) =>emit(state.copyWith(errorMessage: l.message, error: true)),
+        (r) =>emit(state.copyWith(users: r, loading: false)));
+    
   }
 }
