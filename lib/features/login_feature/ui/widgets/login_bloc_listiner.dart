@@ -27,9 +27,7 @@ class LoginBlocListiner extends StatelessWidget {
             );
           },
           success: (data) {
-            context.pop();
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const HomeScreen()));
+            setupSuccessState(context, "Login User Successfuly");
           },
           failure: (error) {
             setupErrorState(context, error);
@@ -61,7 +59,37 @@ void setupErrorState(BuildContext context, String error) {
             context.pop();
           },
           child: Text(
-            'Got it',
+            'Gancel',
+            style: TextStyles.font14DarkBlueMedium,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+void setupSuccessState(BuildContext context, String success) {
+  context.pop();
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      icon: const Icon(
+        Icons.check,
+        color: Colors.green,
+        size: 32,
+      ),
+      content: Text(
+        success,
+        style: TextStyles.font13BlueRegular,
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()));
+          },
+          child: Text(
+            'Go To Home',
             style: TextStyles.font14DarkBlueMedium,
           ),
         ),
