@@ -39,15 +39,17 @@ dependencies:
   freezed: any
   freezed_annotation: any
   json_serializable: any
+  flutter_screenutil: ^5.9.3
+  dartz: ^0.10.1
+  pretty_dio_logger: ^1.4.0
+  image_picker: ^1.1.2
 
 
 dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
-  build_runner: any
-  freezed: any
-  
+  build_runner: any  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
@@ -59,7 +61,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/loading.json
-    # - images/a_dot_burr.jpeg
+    - assets/images/
     # - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

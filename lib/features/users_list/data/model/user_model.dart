@@ -4,6 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'user_model.g.dart'; // Required for generated code
 
 @JsonSerializable()
+// ignore: must_be_immutable
 class UserModel extends User {
   UserModel(
       {required super.id,
