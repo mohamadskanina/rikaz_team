@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:rikaz_team/core/network/dio_factory.dart';
+import 'package:rikaz_team/features/add_user_feature/data/repo/create_user_repo.dart';
+import 'package:rikaz_team/features/add_user_feature/logic/bloc/createuser_bloc.dart';
 import 'package:rikaz_team/features/login_feature/data/apis/api_service.dart';
 import 'package:rikaz_team/features/login_feature/data/repo/login_repo.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
@@ -44,8 +46,8 @@ class ServicesLocator {
 
     /// Create User
     // create_user repo
-    // sl.registerLazySingleton<CreateUserRepo>(() => CreateUserRepo(apiService: sl()));
-    // // bloc
-    // sl.registerFactory<CreateuserBloc>(() => CreateuserBloc(sl()));
+    sl.registerLazySingleton<CreateUserRepo>(() => CreateUserRepo(apiService: sl()));
+    // bloc
+    sl.registerFactory<CreateuserBloc>(() => CreateuserBloc(sl()));
   }
 }
