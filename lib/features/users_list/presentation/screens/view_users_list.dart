@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/services/services_locator.dart';
-import '../controller/bloc/user_bloc.dart';
+import '../controller/view_user_bloc/user_bloc.dart';
 import '../widgets/user_list_widget.dart';
 
 class ViewUsersList extends StatelessWidget {

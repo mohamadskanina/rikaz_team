@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rikaz_team/features/users_list/presentation/widgets/user_list_tile_widget.dart';
 
-import '../controller/bloc/user_bloc.dart';
-import '../controller/bloc/user_state.dart';
+import '../controller/view_user_bloc/user_bloc.dart';
+import '../controller/view_user_bloc/user_state.dart';
 
 class UserListWidget extends StatefulWidget {
   const UserListWidget({super.key});

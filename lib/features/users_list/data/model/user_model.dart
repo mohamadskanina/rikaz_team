@@ -5,7 +5,7 @@ part 'user_model.g.dart'; // Required for generated code
 
 @JsonSerializable()
 class UserModel extends User {
-  UserModel(
+  const UserModel(
       {required super.id,
       required super.email,
       required super.first_name,
