@@ -32,7 +32,7 @@ class UpdateInfoWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   CircleAvatar(
-                    radius: 50.r,
+                    radius: 100.r,
                     backgroundColor: Colors.grey.shade200,
                     child: ClipOval(
                       child: CachedNetworkImage(

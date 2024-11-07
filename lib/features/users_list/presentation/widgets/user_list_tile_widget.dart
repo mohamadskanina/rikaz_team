@@ -46,7 +46,7 @@ class UserListTileWidget extends StatelessWidget {
           ),
           trailing: IconButton(
             icon: Icon(
-              Icons.more_vert,
+              Icons.info_outline,
               color: Colors.grey[600],
             ),
             onPressed: () {
