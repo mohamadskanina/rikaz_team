@@ -6,14 +6,11 @@ import 'package:dio/dio.dart';
 import '../../../../core/error/exceptions.dart';
 import '../../../../core/network/api_constances.dart';
 import '../../../../core/network/error_message.dart';
+import '../../domain/entities/user.dart';
 
 abstract class BaseUserRemoteDataSource {
   Future<List<UserModel>> getUsersList();
-  Future<void> updateUserInfo(
-      {required int id,
-      required String first_name,
-      required String last_name,
-      required String email});
+  Future<void> updateUserInfo({required User user});
 }
 
 class UserRemoteDataSource extends BaseUserRemoteDataSource {
@@ -36,17 +33,13 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
   }
 
   @override
-  Future<void> updateUserInfo(
-      {required int id,
-      required String first_name,
-      required String last_name,
-      required String email}) async {
+  Future<void> updateUserInfo({required User user}) async {
     try {
-      await Dio().patch(ApiConstances.updateUserUrl(id),
+      await Dio().patch(ApiConstances.updateUserUrl(user.id),
           data: const JsonEncoder().convert({
-            'email': email,
-            'first_name': first_name,
-            'last_name': last_name,
+            'email': user.email,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
           }));
     } on DioException catch (e) {
       print(e);

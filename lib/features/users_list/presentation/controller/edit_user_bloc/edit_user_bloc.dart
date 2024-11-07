@@ -47,17 +47,18 @@ class EditUserBloc extends Bloc<EditUserEvent, EditUserState> {
           builder: (BuildContext context) => const LoadingDialogWidget());
     }
     emit(state.copyWith(loading: true));
-      final result = await updateUserInfoUseCase(UpdateParameters(
-          id: event.id,
-          email: emailController.text,
-          first_name: firstNameController.text,
-          last_name: lastNameController.text));
-    // print(result);
+    final result = await updateUserInfoUseCase(UpdateParameters(
+        id: event.id,
+        email: emailController.text,
+        first_name: firstNameController.text,
+        last_name: lastNameController.text,
+        avatar: ''));
+
     result.fold((l) {
       emit(
           state.copyWith(errorMessage: l.message, error: true, loading: false));
       if (context != null) {
-         Navigator.of(context).pop();
+        Navigator.of(context).pop();
         Toast().error(context, l.message);
       }
     }, (r) {
