@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../../../../core/usecase/base_usecase.dart';
 import '../../../domain/usecase/get_users.dart';
@@ -20,8 +20,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   FutureOr<void> _getUsersHandler(
       GetUsersEvent event, Emitter<UserState> emit) async {
     emit(state.copyWith(loading: true));
-    final data = await getUsersUseCase(const NoParameters());
+    final result = await getUsersUseCase(const NoParameters());
     // print(result);
-    emit(state.copyWith(users: data, loading: false));
+    result.fold(
+        (l) => emit(state.copyWith(
+            errorMessage: l.message, error: true, loading: false)),
+        (r) => emit(state.copyWith(users: r, loading: false,error: false)));
   }
 }

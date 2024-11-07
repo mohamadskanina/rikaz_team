@@ -46,7 +46,7 @@ mixin _$LoginState<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(LoginFailure<T> value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +54,7 @@ mixin _$LoginState<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(LoginFailure<T> value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +62,7 @@ mixin _$LoginState<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(LoginFailure<T> value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -164,7 +164,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(LoginFailure<T> value) failure,
   }) {
     return initial(this);
   }
@@ -175,7 +175,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(LoginFailure<T> value)? failure,
   }) {
     return initial?.call(this);
   }
@@ -186,7 +186,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(LoginFailure<T> value)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -278,7 +278,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(LoginFailure<T> value) failure,
   }) {
     return loading(this);
   }
@@ -289,7 +289,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(LoginFailure<T> value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -300,7 +300,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(LoginFailure<T> value)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -419,7 +419,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(LoginFailure<T> value) failure,
   }) {
     return success(this);
   }
@@ -430,7 +430,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(LoginFailure<T> value)? failure,
   }) {
     return success?.call(this);
   }
@@ -441,7 +441,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(LoginFailure<T> value)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -461,20 +461,20 @@ abstract class Success<T> implements LoginState<T> {
 }
 
 /// @nodoc
-abstract class _$$FailureImplCopyWith<T, $Res> {
-  factory _$$FailureImplCopyWith(
-          _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
-      __$$FailureImplCopyWithImpl<T, $Res>;
+abstract class _$$LoginFailureImplCopyWith<T, $Res> {
+  factory _$$LoginFailureImplCopyWith(_$LoginFailureImpl<T> value,
+          $Res Function(_$LoginFailureImpl<T>) then) =
+      __$$LoginFailureImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<T, $Res>
-    extends _$LoginStateCopyWithImpl<T, $Res, _$FailureImpl<T>>
-    implements _$$FailureImplCopyWith<T, $Res> {
-  __$$FailureImplCopyWithImpl(
-      _$FailureImpl<T> _value, $Res Function(_$FailureImpl<T>) _then)
+class __$$LoginFailureImplCopyWithImpl<T, $Res>
+    extends _$LoginStateCopyWithImpl<T, $Res, _$LoginFailureImpl<T>>
+    implements _$$LoginFailureImplCopyWith<T, $Res> {
+  __$$LoginFailureImplCopyWithImpl(
+      _$LoginFailureImpl<T> _value, $Res Function(_$LoginFailureImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -482,7 +482,7 @@ class __$$FailureImplCopyWithImpl<T, $Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$FailureImpl<T>(
+    return _then(_$LoginFailureImpl<T>(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -493,8 +493,8 @@ class __$$FailureImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$FailureImpl<T> implements Failure<T> {
-  const _$FailureImpl({required this.message});
+class _$LoginFailureImpl<T> implements LoginFailure<T> {
+  const _$LoginFailureImpl({required this.message});
 
   @override
   final String message;
@@ -508,7 +508,7 @@ class _$FailureImpl<T> implements Failure<T> {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FailureImpl<T> &&
+            other is _$LoginFailureImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -518,8 +518,9 @@ class _$FailureImpl<T> implements Failure<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
-      __$$FailureImplCopyWithImpl<T, _$FailureImpl<T>>(this, _$identity);
+  _$$LoginFailureImplCopyWith<T, _$LoginFailureImpl<T>> get copyWith =>
+      __$$LoginFailureImplCopyWithImpl<T, _$LoginFailureImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -564,7 +565,7 @@ class _$FailureImpl<T> implements Failure<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(LoginFailure<T> value) failure,
   }) {
     return failure(this);
   }
@@ -575,7 +576,7 @@ class _$FailureImpl<T> implements Failure<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(LoginFailure<T> value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -586,7 +587,7 @@ class _$FailureImpl<T> implements Failure<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(LoginFailure<T> value)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -596,11 +597,12 @@ class _$FailureImpl<T> implements Failure<T> {
   }
 }
 
-abstract class Failure<T> implements LoginState<T> {
-  const factory Failure({required final String message}) = _$FailureImpl<T>;
+abstract class LoginFailure<T> implements LoginState<T> {
+  const factory LoginFailure({required final String message}) =
+      _$LoginFailureImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
+  _$$LoginFailureImplCopyWith<T, _$LoginFailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

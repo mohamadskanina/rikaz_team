@@ -20,18 +20,22 @@ class _UserListWidgetState extends State<UserListWidget> {
       builder: (context, state) {
         return state.loading
             ? Center(
-                child: Lottie.asset('assets/loading.json',
-                    width: 200, height: 200))
+                child: Lottie.asset(
+                'assets/loading.json',
+                width: 200,
+                height: 200,
+              ))
             : ListView.builder(
                 itemCount: state.users.length,
                 itemBuilder: (context, i) {
                   return ListTile(
                     leading: CircleAvatar(
                       radius: 25,
-                      backgroundImage: NetworkImage(state.users[i].avatar),
+                      backgroundImage:
+                          NetworkImage(state.users[i].avatar),
                     ),
                     title: Text(
-                      state.users[i].firstName + state.users[i].lastName,
+                      state.users[i].first_name + state.users[i].last_name,
                       style: TextStyle(
                           color: Colors.blue[700], fontWeight: FontWeight.bold),
                     ),

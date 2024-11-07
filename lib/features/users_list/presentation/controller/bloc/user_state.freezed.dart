@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UserState {
   List<User> get users => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
-  bool get errorr => throw _privateConstructorUsedError;
+  bool get error => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserStateCopyWith<UserState> get copyWith =>
@@ -30,7 +31,7 @@ abstract class $UserStateCopyWith<$Res> {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
-  $Res call({List<User> users, bool loading, bool errorr});
+  $Res call({List<User> users, bool loading, bool error, String errorMessage});
 }
 
 /// @nodoc
@@ -48,7 +49,8 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   $Res call({
     Object? users = null,
     Object? loading = null,
-    Object? errorr = null,
+    Object? error = null,
+    Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
       users: null == users
@@ -59,10 +61,14 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorr: null == errorr
-          ? _value.errorr
-          : errorr // ignore: cast_nullable_to_non_nullable
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -75,7 +81,7 @@ abstract class _$$UserStateImplCopyWith<$Res>
       __$$UserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<User> users, bool loading, bool errorr});
+  $Res call({List<User> users, bool loading, bool error, String errorMessage});
 }
 
 /// @nodoc
@@ -91,7 +97,8 @@ class __$$UserStateImplCopyWithImpl<$Res>
   $Res call({
     Object? users = null,
     Object? loading = null,
-    Object? errorr = null,
+    Object? error = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$UserStateImpl(
       users: null == users
@@ -102,10 +109,14 @@ class __$$UserStateImplCopyWithImpl<$Res>
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorr: null == errorr
-          ? _value.errorr
-          : errorr // ignore: cast_nullable_to_non_nullable
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -116,7 +127,8 @@ class _$UserStateImpl implements _UserState {
   const _$UserStateImpl(
       {final List<User> users = const <User>[],
       this.loading = false,
-      this.errorr = false})
+      this.error = false,
+      this.errorMessage = ''})
       : _users = users;
 
   final List<User> _users;
@@ -133,11 +145,14 @@ class _$UserStateImpl implements _UserState {
   final bool loading;
   @override
   @JsonKey()
-  final bool errorr;
+  final bool error;
+  @override
+  @JsonKey()
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'UserState(users: $users, loading: $loading, errorr: $errorr)';
+    return 'UserState(users: $users, loading: $loading, error: $error, errorMessage: $errorMessage)';
   }
 
   @override
@@ -147,12 +162,18 @@ class _$UserStateImpl implements _UserState {
             other is _$UserStateImpl &&
             const DeepCollectionEquality().equals(other._users, _users) &&
             (identical(other.loading, loading) || other.loading == loading) &&
-            (identical(other.errorr, errorr) || other.errorr == errorr));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_users), loading, errorr);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_users),
+      loading,
+      error,
+      errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -165,14 +186,17 @@ abstract class _UserState implements UserState {
   const factory _UserState(
       {final List<User> users,
       final bool loading,
-      final bool errorr}) = _$UserStateImpl;
+      final bool error,
+      final String errorMessage}) = _$UserStateImpl;
 
   @override
   List<User> get users;
   @override
   bool get loading;
   @override
-  bool get errorr;
+  bool get error;
+  @override
+  String get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>

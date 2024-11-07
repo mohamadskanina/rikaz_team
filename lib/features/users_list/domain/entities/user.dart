@@ -2,19 +2,18 @@
 
 import 'package:equatable/equatable.dart';
 
-// ignore: must_be_immutable
 class User extends Equatable {
-  int id;
-  String email;
-  String firstName;
-  String lastName;
-  String avatar;
+  final int id;
+  final String email;
+  final String first_name;
+  final String last_name;
+  final String avatar;
 
-  User({
+  const User({
     required this.id,
     required this.email,
-    required this.firstName,
-    required this.lastName,
+    required this.first_name,
+    required this.last_name,
     required this.avatar,
   });
   
@@ -23,8 +22,8 @@ class User extends Equatable {
     return [
       id,
       email,
-      firstName,
-      lastName,
+      first_name,
+      last_name,
       avatar,
     ];
   }

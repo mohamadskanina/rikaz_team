@@ -13,7 +13,7 @@ class LoginBlocListiner extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Failure,
+          current is Loading || current is Success || current is LoginFailure,
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
