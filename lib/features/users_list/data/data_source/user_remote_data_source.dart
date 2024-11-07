@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:rikaz_team/features/users_list/data/model/user_model.dart';
 import 'package:dio/dio.dart';
 
@@ -7,7 +9,11 @@ import '../../../../core/network/error_message.dart';
 
 abstract class BaseUserRemoteDataSource {
   Future<List<UserModel>> getUsersList();
-  Future<void> updateUserInfo({required UserModel user});
+  Future<void> updateUserInfo(
+      {required int id,
+      required String first_name,
+      required String last_name,
+      required String email});
 }
 
 class UserRemoteDataSource extends BaseUserRemoteDataSource {
@@ -28,15 +34,22 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
       throw Exception('Failed to get users:$e');
     }
   }
-  
-  @override
-  Future<void> updateUserInfo({required UserModel user}) async {
-    try {
-      await Dio().put(ApiConstances.getUsersListUrl,data: user.toJson());
-      // print(response.data);
 
+  @override
+  Future<void> updateUserInfo(
+      {required int id,
+      required String first_name,
+      required String last_name,
+      required String email}) async {
+    try {
+      await Dio().patch(ApiConstances.updateUserUrl(id),
+          data: const JsonEncoder().convert({
+            'email': email,
+            'first_name': first_name,
+            'last_name': last_name,
+          }));
     } on DioException catch (e) {
-      print(e.error);
+      print(e);
       throw ServerException(
           errorMessageModel: ErrorMessageModel.fromJson(e.response?.data),
           statusCode: e.response?.statusCode);

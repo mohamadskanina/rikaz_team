@@ -1,11 +1,21 @@
 part of 'edit_user_bloc.dart';
 
-abstract class UserEvent extends Equatable {
-  const UserEvent();
+abstract class EditUserEvent extends Equatable {
+  const EditUserEvent();
 
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }
 
-class EditUsersEvent extends UserEvent {}
+class UpdateUserInfoEvent extends EditUserEvent {
+  final int id;
+
+  const UpdateUserInfoEvent({
+    required this.id,
+  });
+
+  @override
+  List<Object> get props {
+    return [id];
+  }
+}

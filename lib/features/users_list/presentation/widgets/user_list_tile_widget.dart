@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rikaz_team/features/users_list/presentation/screens/update_user_info.dart';
+import 'package:rikaz_team/routes/router_screens.dart';
+import 'package:rikaz_team/routes/routes_name.dart';
 
 import '../../domain/entities/user.dart';
 
@@ -48,9 +50,15 @@ class UserListTileWidget extends StatelessWidget {
               color: Colors.grey[600],
             ),
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return UpdateUserInfo(user: user);
-              }));
+              AppRouter.router.navigateTo(
+                context,
+                RoutesNames.updateUserInfo,
+                clearStack: false,
+                transition: TransitionType.inFromBottom,
+                routeSettings: RouteSettings(
+                  arguments: {"user": user},
+                ),
+              );
             },
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rikaz_team/core/services/services_locator.dart';
+import 'package:rikaz_team/features/users_list/presentation/controller/edit_user_bloc/edit_user_bloc.dart';
 
 import '../../domain/entities/user.dart';
+import '../widgets/update_info_widget.dart';
 
 class UpdateUserInfo extends StatefulWidget {
   const UpdateUserInfo({super.key, required this.user});
@@ -10,14 +14,16 @@ class UpdateUserInfo extends StatefulWidget {
 }
 
 class _UpdateUserInfoState extends State<UpdateUserInfo> {
-  late TextEditingController _nameController;
-  late TextEditingController _emailController;
-
+  EditUserBloc editUserBloc = sl<EditUserBloc>();
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: widget.user.first_name);
-    _emailController = TextEditingController(text: widget.user.email);
+    editUserBloc.firstNameController =
+        TextEditingController(text: widget.user.first_name);
+    editUserBloc.lastNameController =
+        TextEditingController(text: widget.user.last_name);
+    editUserBloc.emailController =
+        TextEditingController(text: widget.user.email);
   }
 
   @override
@@ -26,61 +32,18 @@ class _UpdateUserInfoState extends State<UpdateUserInfo> {
       appBar: AppBar(
         title: Text('Edit User'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: NetworkImage(widget.user.avatar),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                labelText: 'Name',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // widget.user.name = _nameController.text;
-                    // widget.user.email = _emailController.text;
-                    Navigator.pop(context);
-                  },
-                  child: Text('Save Changes'),
-                ),
-                OutlinedButton(
-                  onPressed: () {
-                    // إلغاء التعديلات والعودة
-                    Navigator.pop(context);
-                  },
-                  child: Text('Cancel'),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      body: BlocProvider(
+          create: (context) => editUserBloc,
+          child: UpdateInfoWidget(
+            user: widget.user,
+            editUserBloc: editUserBloc,
+          )),
     );
   }
 
   @override
   void dispose() {
-    _nameController.dispose();
-    _emailController.dispose();
+    editUserBloc.close();
     super.dispose();
   }
 }
