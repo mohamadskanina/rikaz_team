@@ -8,6 +8,6 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   ServicesLocator().init();
   runApp(
-    const MyApp(), 
+    const MyApp(),
   );
 }
