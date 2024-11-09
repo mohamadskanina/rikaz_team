@@ -42,13 +42,13 @@ class ExcelBloc extends Bloc<ExcelEvent, ExcelState> {
 
       for (var i = 2; i < users.length; i++) {
         var cell4 = sheet.cell(CellIndex.indexByString("A$i"));
-        cell4.value = IntCellValue(users[i].id);
+        cell4.value = IntCellValue(users[i-2].id);
 
         cell4 = sheet.cell(CellIndex.indexByString("B$i"));
-        cell4.value = TextCellValue(users[i].first_name + users[i].last_name);
+        cell4.value = TextCellValue(users[i-2].first_name + users[i-2].last_name);
 
         cell4 = sheet.cell(CellIndex.indexByString("C$i"));
-        cell4.value = TextCellValue(users[i].email);
+        cell4.value = TextCellValue(users[i-2].email);
       }
 
       sheet.setColumnAutoFit(0);
@@ -57,7 +57,7 @@ class ExcelBloc extends Bloc<ExcelEvent, ExcelState> {
 
       if (kIsWeb) {
         // download on browser
-        final filesheet = excel.save();
+        final filesheet = excel.save(fileName: "users.xlsx");
 
         final blob = html.Blob([filesheet], 'files/xlsx');
         final url = html.Url.createObjectUrlFromBlob(blob);
