@@ -43,6 +43,10 @@ dependencies:
   dartz: ^0.10.1
   pretty_dio_logger: ^1.4.0
   image_picker: ^1.1.2
+  path_provider: ^2.1.5
+  syncfusion_flutter_xlsio: ^27.1.58
+  excel: ^4.0.6
+  universal_html: ^2.2.4
 
 
 dev_dependencies:

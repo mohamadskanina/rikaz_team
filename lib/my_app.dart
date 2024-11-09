@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rikaz_team/core/services/services_locator.dart';
-import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
-import 'package:rikaz_team/features/login_feature/ui/login_screen.dart';
 import 'package:rikaz_team/features/users_list/presentation/screens/view_users_list.dart';
 
 class MyApp extends StatelessWidget {
