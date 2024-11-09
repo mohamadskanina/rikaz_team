@@ -68,7 +68,7 @@ class ExcelBloc extends Bloc<ExcelEvent, ExcelState> {
         html.Url.revokeObjectUrl(url);
       } else {
         // download on mobiles or disktop
-        var directory = await getTemporaryDirectory();
+        var directory = await getApplicationDocumentsDirectory();
         final file = File('${directory.path}/users.xlsx');
         await file.writeAsBytes(excel.save()!);
       }
