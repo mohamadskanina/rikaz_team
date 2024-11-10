@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rikaz_team/core/widgets/show_dialog.dart';
+import 'package:rikaz_team/features/export_to_pdf/presentation/widgets/save_pdf_dialog.dart';
 
 import '../../../../core/services/services_locator.dart';
 import '../controller/view_user_bloc/user_bloc.dart';
+import '../controller/view_user_bloc/user_state.dart';
 import '../widgets/user_list_widget.dart';
 
 class ViewUsersList extends StatelessWidget {
@@ -26,6 +29,23 @@ class ViewUsersList extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 1,
           iconTheme: IconThemeData(color: Colors.blue[800]),
+          actions: [
+            BlocBuilder<UserBloc, UserState>(
+              builder: (dialogContext, state) {
+                return !state.loading
+                    ? Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: IconButton(
+                          icon: const Icon(Icons.picture_as_pdf),
+                          onPressed: () => ShowDialog(
+                              context: dialogContext,
+                              dialogWidget: const SavePdfDialog()),
+                        ),
+                      )
+                    : Container();
+              },
+            ),
+          ],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 5.w),
