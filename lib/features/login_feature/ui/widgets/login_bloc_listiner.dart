@@ -4,7 +4,8 @@ import 'package:rikaz_team/core/helpers/extensions.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_state.dart';
-import 'package:rikaz_team/features/login_feature/ui/widgets/home_screen.dart';
+import 'package:rikaz_team/routes/router_screens.dart';
+import 'package:rikaz_team/routes/routes_name.dart';
 
 class LoginBlocListiner extends StatelessWidget {
   const LoginBlocListiner({super.key});
@@ -85,8 +86,7 @@ void setupSuccessState(BuildContext context, String success) {
       actions: [
         TextButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()));
+            AppRouter.router.navigateTo(context, RoutesNames.homePage);
           },
           child: Text(
             'Go To Home',

@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rikaz_team/features/login_feature/ui/login_screen.dart';
 import 'package:rikaz_team/features/users_list/presentation/screens/update_user_info.dart';
 import 'package:rikaz_team/routes/routes_name.dart';
 
@@ -11,6 +12,15 @@ void configureRoutes(FluroRouter router) {
     handler: Handler(
       handlerFunc: (context, parameters) {
         return const ViewUsersList();
+      },
+    ),
+  );
+  
+  router.define(
+    RoutesNames.login,
+    handler: Handler(
+      handlerFunc: (context, parameters) {
+        return const LoginScreen();
       },
     ),
   );
