@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rikaz_team/routes/router_screens.dart';
+import 'package:rikaz_team/routes/routes_name.dart';
 
 import '../../domain/entities/user.dart';
 
@@ -18,8 +21,7 @@ class UserListTileWidget extends StatelessWidget {
         child: ListTile(
           leading: CachedNetworkImage(
             imageUrl: user.avatar,
-            placeholder: (context, url) =>
-                const CircularProgressIndicator(),
+            placeholder: (context, url) => const CircularProgressIndicator(),
             errorWidget: (context, url, error) =>
                 const Icon(Icons.error, color: Colors.red),
             imageBuilder: (context, imageProvider) => CircleAvatar(
@@ -44,10 +46,20 @@ class UserListTileWidget extends StatelessWidget {
           ),
           trailing: IconButton(
             icon: Icon(
-              Icons.more_vert,
+              Icons.info_outline,
               color: Colors.grey[600],
             ),
-            onPressed: () {},
+            onPressed: () {
+              AppRouter.router.navigateTo(
+                context,
+                RoutesNames.updateUserInfo,
+                clearStack: false,
+                transition: TransitionType.inFromBottom,
+                routeSettings: RouteSettings(
+                  arguments: {"user": user},
+                ),
+              );
+            },
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
         ),

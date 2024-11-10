@@ -11,5 +11,4 @@ class UserState with _$UserState {
     @Default(false) bool error,
     @Default('') String errorMessage,
   }) = _UserState;
-
 }

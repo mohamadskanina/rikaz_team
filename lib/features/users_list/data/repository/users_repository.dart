@@ -13,10 +13,21 @@ class UsersRepository extends BaseUsersRepository {
 
   @override
   ResultFuture<List<User>> getUsersList() async {
-    
     final result = await _baseUserRemoteDataSource.getUsersList();
     try {
       return Right(result);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(
+          message: failure.errorMessageModel.message,
+          statusCode: failure.errorMessageModel.statusCode));
+    }
+  }
+
+  @override
+  ResultVoid updateUserInfo({required User user}) async {
+    await _baseUserRemoteDataSource.updateUserInfo(user: user);
+    try {
+      return const Right(null);
     } on ServerException catch (failure) {
       return Left(ServerFailure(
           message: failure.errorMessageModel.message,
