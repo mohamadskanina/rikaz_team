@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'login_state.dart';
+part of 'excel_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$LoginState<T> {
+mixin _$ExcelState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function() success,
     required TResult Function(String message) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$LoginState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,49 +36,49 @@ mixin _$LoginState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(LoginFailure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingExcel value) loading,
+    required TResult Function(SuccessExcel value) success,
+    required TResult Function(FailureExcel value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(LoginFailure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingExcel value)? loading,
+    TResult? Function(SuccessExcel value)? success,
+    TResult? Function(FailureExcel value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(LoginFailure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingExcel value)? loading,
+    TResult Function(SuccessExcel value)? success,
+    TResult Function(FailureExcel value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoginStateCopyWith<T, $Res> {
-  factory $LoginStateCopyWith(
-          LoginState<T> value, $Res Function(LoginState<T>) then) =
-      _$LoginStateCopyWithImpl<T, $Res, LoginState<T>>;
+abstract class $ExcelStateCopyWith<$Res> {
+  factory $ExcelStateCopyWith(
+          ExcelState value, $Res Function(ExcelState) then) =
+      _$ExcelStateCopyWithImpl<$Res, ExcelState>;
 }
 
 /// @nodoc
-class _$LoginStateCopyWithImpl<T, $Res, $Val extends LoginState<T>>
-    implements $LoginStateCopyWith<T, $Res> {
-  _$LoginStateCopyWithImpl(this._value, this._then);
+class _$ExcelStateCopyWithImpl<$Res, $Val extends ExcelState>
+    implements $ExcelStateCopyWith<$Res> {
+  _$ExcelStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,35 +87,35 @@ class _$LoginStateCopyWithImpl<T, $Res, $Val extends LoginState<T>>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<T, $Res> {
+abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
-      __$$InitialImplCopyWithImpl<T, $Res>;
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$LoginStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
-    implements _$$InitialImplCopyWith<T, $Res> {
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ExcelStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl<T> implements _Initial<T> {
+class _$InitialImpl implements _Initial {
   const _$InitialImpl();
 
   @override
   String toString() {
-    return 'LoginState<$T>.initial()';
+    return 'ExcelState.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -126,7 +126,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function() success,
     required TResult Function(String message) failure,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -161,10 +161,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(LoginFailure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingExcel value) loading,
+    required TResult Function(SuccessExcel value) success,
+    required TResult Function(FailureExcel value) failure,
   }) {
     return initial(this);
   }
@@ -172,10 +172,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(LoginFailure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingExcel value)? loading,
+    TResult? Function(SuccessExcel value)? success,
+    TResult? Function(FailureExcel value)? failure,
   }) {
     return initial?.call(this);
   }
@@ -183,10 +183,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(LoginFailure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingExcel value)? loading,
+    TResult Function(SuccessExcel value)? success,
+    TResult Function(FailureExcel value)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -196,40 +196,40 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements LoginState<T> {
-  const factory _Initial() = _$InitialImpl<T>;
+abstract class _Initial implements ExcelState {
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<T, $Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl<T> value, $Res Function(_$LoadingImpl<T>) then) =
-      __$$LoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$LoadingExcelImplCopyWith<$Res> {
+  factory _$$LoadingExcelImplCopyWith(
+          _$LoadingExcelImpl value, $Res Function(_$LoadingExcelImpl) then) =
+      __$$LoadingExcelImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$LoginStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
-    implements _$$LoadingImplCopyWith<T, $Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
+class __$$LoadingExcelImplCopyWithImpl<$Res>
+    extends _$ExcelStateCopyWithImpl<$Res, _$LoadingExcelImpl>
+    implements _$$LoadingExcelImplCopyWith<$Res> {
+  __$$LoadingExcelImplCopyWithImpl(
+      _$LoadingExcelImpl _value, $Res Function(_$LoadingExcelImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadingImpl<T> implements Loading<T> {
-  const _$LoadingImpl();
+class _$LoadingExcelImpl implements LoadingExcel {
+  const _$LoadingExcelImpl();
 
   @override
   String toString() {
-    return 'LoginState<$T>.loading()';
+    return 'ExcelState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl<T>);
+        (other.runtimeType == runtimeType && other is _$LoadingExcelImpl);
   }
 
   @override
@@ -240,7 +240,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function() success,
     required TResult Function(String message) failure,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -275,10 +275,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(LoginFailure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingExcel value) loading,
+    required TResult Function(SuccessExcel value) success,
+    required TResult Function(FailureExcel value) failure,
   }) {
     return loading(this);
   }
@@ -286,10 +286,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(LoginFailure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingExcel value)? loading,
+    TResult? Function(SuccessExcel value)? success,
+    TResult? Function(FailureExcel value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -297,10 +297,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(LoginFailure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingExcel value)? loading,
+    TResult Function(SuccessExcel value)? success,
+    TResult Function(FailureExcel value)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -310,81 +310,54 @@ class _$LoadingImpl<T> implements Loading<T> {
   }
 }
 
-abstract class Loading<T> implements LoginState<T> {
-  const factory Loading() = _$LoadingImpl<T>;
+abstract class LoadingExcel implements ExcelState {
+  const factory LoadingExcel() = _$LoadingExcelImpl;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<T, $Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
-      __$$SuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({T data});
+abstract class _$$SuccessExcelImplCopyWith<$Res> {
+  factory _$$SuccessExcelImplCopyWith(
+          _$SuccessExcelImpl value, $Res Function(_$SuccessExcelImpl) then) =
+      __$$SuccessExcelImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$LoginStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
-    implements _$$SuccessImplCopyWith<T, $Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
+class __$$SuccessExcelImplCopyWithImpl<$Res>
+    extends _$ExcelStateCopyWithImpl<$Res, _$SuccessExcelImpl>
+    implements _$$SuccessExcelImplCopyWith<$Res> {
+  __$$SuccessExcelImplCopyWithImpl(
+      _$SuccessExcelImpl _value, $Res Function(_$SuccessExcelImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$SuccessImpl<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl(this.data);
-
-  @override
-  final T data;
+class _$SuccessExcelImpl implements SuccessExcel {
+  const _$SuccessExcelImpl();
 
   @override
   String toString() {
-    return 'LoginState<$T>.success(data: $data)';
+    return 'ExcelState.success()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
+        (other.runtimeType == runtimeType && other is _$SuccessExcelImpl);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
-      __$$SuccessImplCopyWithImpl<T, _$SuccessImpl<T>>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function() success,
     required TResult Function(String message) failure,
   }) {
-    return success(data);
+    return success();
   }
 
   @override
@@ -392,10 +365,10 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) {
-    return success?.call(data);
+    return success?.call();
   }
 
   @override
@@ -403,12 +376,12 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(data);
+      return success();
     }
     return orElse();
   }
@@ -416,10 +389,10 @@ class _$SuccessImpl<T> implements Success<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(LoginFailure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingExcel value) loading,
+    required TResult Function(SuccessExcel value) success,
+    required TResult Function(FailureExcel value) failure,
   }) {
     return success(this);
   }
@@ -427,10 +400,10 @@ class _$SuccessImpl<T> implements Success<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(LoginFailure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingExcel value)? loading,
+    TResult? Function(SuccessExcel value)? success,
+    TResult? Function(FailureExcel value)? failure,
   }) {
     return success?.call(this);
   }
@@ -438,10 +411,10 @@ class _$SuccessImpl<T> implements Success<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(LoginFailure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingExcel value)? loading,
+    TResult Function(SuccessExcel value)? success,
+    TResult Function(FailureExcel value)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -451,30 +424,25 @@ class _$SuccessImpl<T> implements Success<T> {
   }
 }
 
-abstract class Success<T> implements LoginState<T> {
-  const factory Success(final T data) = _$SuccessImpl<T>;
-
-  T get data;
-  @JsonKey(ignore: true)
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class SuccessExcel implements ExcelState {
+  const factory SuccessExcel() = _$SuccessExcelImpl;
 }
 
 /// @nodoc
-abstract class _$$LoginFailureImplCopyWith<T, $Res> {
-  factory _$$LoginFailureImplCopyWith(_$LoginFailureImpl<T> value,
-          $Res Function(_$LoginFailureImpl<T>) then) =
-      __$$LoginFailureImplCopyWithImpl<T, $Res>;
+abstract class _$$FailureExcelImplCopyWith<$Res> {
+  factory _$$FailureExcelImplCopyWith(
+          _$FailureExcelImpl value, $Res Function(_$FailureExcelImpl) then) =
+      __$$FailureExcelImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$LoginFailureImplCopyWithImpl<T, $Res>
-    extends _$LoginStateCopyWithImpl<T, $Res, _$LoginFailureImpl<T>>
-    implements _$$LoginFailureImplCopyWith<T, $Res> {
-  __$$LoginFailureImplCopyWithImpl(
-      _$LoginFailureImpl<T> _value, $Res Function(_$LoginFailureImpl<T>) _then)
+class __$$FailureExcelImplCopyWithImpl<$Res>
+    extends _$ExcelStateCopyWithImpl<$Res, _$FailureExcelImpl>
+    implements _$$FailureExcelImplCopyWith<$Res> {
+  __$$FailureExcelImplCopyWithImpl(
+      _$FailureExcelImpl _value, $Res Function(_$FailureExcelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -482,7 +450,7 @@ class __$$LoginFailureImplCopyWithImpl<T, $Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$LoginFailureImpl<T>(
+    return _then(_$FailureExcelImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -493,22 +461,22 @@ class __$$LoginFailureImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$LoginFailureImpl<T> implements LoginFailure<T> {
-  const _$LoginFailureImpl({required this.message});
+class _$FailureExcelImpl implements FailureExcel {
+  const _$FailureExcelImpl({required this.message});
 
   @override
   final String message;
 
   @override
   String toString() {
-    return 'LoginState<$T>.failure(message: $message)';
+    return 'ExcelState.failure(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginFailureImpl<T> &&
+            other is _$FailureExcelImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -518,16 +486,15 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginFailureImplCopyWith<T, _$LoginFailureImpl<T>> get copyWith =>
-      __$$LoginFailureImplCopyWithImpl<T, _$LoginFailureImpl<T>>(
-          this, _$identity);
+  _$$FailureExcelImplCopyWith<_$FailureExcelImpl> get copyWith =>
+      __$$FailureExcelImplCopyWithImpl<_$FailureExcelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function() success,
     required TResult Function(String message) failure,
   }) {
     return failure(message);
@@ -538,7 +505,7 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) {
     return failure?.call(message);
@@ -549,7 +516,7 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -562,10 +529,10 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(LoginFailure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingExcel value) loading,
+    required TResult Function(SuccessExcel value) success,
+    required TResult Function(FailureExcel value) failure,
   }) {
     return failure(this);
   }
@@ -573,10 +540,10 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(LoginFailure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingExcel value)? loading,
+    TResult? Function(SuccessExcel value)? success,
+    TResult? Function(FailureExcel value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -584,10 +551,10 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(LoginFailure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingExcel value)? loading,
+    TResult Function(SuccessExcel value)? success,
+    TResult Function(FailureExcel value)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -597,12 +564,12 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
   }
 }
 
-abstract class LoginFailure<T> implements LoginState<T> {
-  const factory LoginFailure({required final String message}) =
-      _$LoginFailureImpl<T>;
+abstract class FailureExcel implements ExcelState {
+  const factory FailureExcel({required final String message}) =
+      _$FailureExcelImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$LoginFailureImplCopyWith<T, _$LoginFailureImpl<T>> get copyWith =>
+  _$$FailureExcelImplCopyWith<_$FailureExcelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

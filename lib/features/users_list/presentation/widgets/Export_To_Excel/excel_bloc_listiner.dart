@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rikaz_team/core/helpers/extensions.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
-import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
-import 'package:rikaz_team/features/login_feature/logic/bloc/login_state.dart';
-import 'package:rikaz_team/routes/router_screens.dart';
-import 'package:rikaz_team/routes/routes_name.dart';
+import 'package:rikaz_team/features/users_list/presentation/controller/excel_bloc/excel_bloc.dart';
+import 'package:rikaz_team/features/users_list/presentation/controller/excel_bloc/excel_state.dart';
 
-class LoginBlocListiner extends StatelessWidget {
-  const LoginBlocListiner({super.key});
+class ExcelBlocListiner extends StatelessWidget {
+  const ExcelBlocListiner({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginBloc, LoginState>(
+    return BlocListener<ExcelBloc, ExcelState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is LoginFailure,
+          current is LoadingExcel ||
+          current is SuccessExcel ||
+          current is FailureExcel,
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
@@ -27,8 +27,8 @@ class LoginBlocListiner extends StatelessWidget {
               ),
             );
           },
-          success: (data) {
-            setupSuccessState(context, "Login User Successfuly");
+          success: () {
+            setupSuccessState(context, "Export File Successuly");
           },
           failure: (error) {
             setupErrorState(context, error);
@@ -60,7 +60,7 @@ void setupErrorState(BuildContext context, String error) {
             context.pop();
           },
           child: Text(
-            'Gancel',
+            'Close',
             style: TextStyles.font14DarkBlueMedium,
           ),
         ),
@@ -86,10 +86,10 @@ void setupSuccessState(BuildContext context, String success) {
       actions: [
         TextButton(
           onPressed: () {
-            AppRouter.router.navigateTo(context, RoutesNames.homePage);
+            context.pop();
           },
           child: Text(
-            'Go To Home',
+            'Close',
             style: TextStyles.font14DarkBlueMedium,
           ),
         ),
