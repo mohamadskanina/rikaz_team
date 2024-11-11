@@ -1,6 +1,4 @@
-import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:rikaz_team/features/users_list/domain/entities/user.dart';
 import 'dart:typed_data';

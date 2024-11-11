@@ -8,7 +8,7 @@ class ApiService {
 
   ApiService({required Dio dio}) : _dio = dio;
 
-  Future<Map<String , dynamic>> login(LoginRequest loginRequest) async {
+  Future<Map<String, dynamic>> login(LoginRequest loginRequest) async {
     var response = await _dio.post(
       ApiConstances.loginUrl,
       data: loginRequest.toJson(),
@@ -16,12 +16,12 @@ class ApiService {
     return response.data;
   }
 
-  Future<Map<String , dynamic>> createuser(CreateUserRequest createUserRequest) async {
+  Future<Map<String, dynamic>> createuser(
+      CreateUserRequest createUserRequest) async {
     var response = await _dio.post(
       ApiConstances.createUserUrl,
       data: createUserRequest.toJson(),
     );
     return response.data;
   }
-
 }

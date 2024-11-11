@@ -1,12 +1,15 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:rikaz_team/core/services/services_locator.dart';
 import 'package:rikaz_team/core/widgets/loading_dialog_widget.dart';
 import 'package:rikaz_team/core/widgets/toast.dart';
+import 'package:rikaz_team/features/users_list/domain/entities/user.dart';
 import 'package:rikaz_team/features/users_list/domain/usecase/update_user_info.dart';
+import 'package:share_plus/share_plus.dart';
 import 'edit_user_state.dart';
 
 part 'edit_user_event.dart';
@@ -22,6 +25,7 @@ class EditUserBloc extends Bloc<EditUserEvent, EditUserState> {
     this.updateUserInfoUseCase,
   ) : super(const EditUserState.initial()) {
     on<UpdateUserInfoEvent>(_updateUsersHandler);
+    on<CopyUserInfo>(_copyUserInfoHandler);
   }
   FutureOr<void> _updateUsersHandler(
       UpdateUserInfoEvent event, Emitter<EditUserState> emit) async {
@@ -68,5 +72,15 @@ class EditUserBloc extends Bloc<EditUserEvent, EditUserState> {
         Toast().success(context, 'Success update user info');
       }
     });
+  }
+
+  FutureOr<void> _copyUserInfoHandler(
+      CopyUserInfo event, Emitter<EditUserState> emit) {
+    final String userData =
+        "User id: ${event.user.id}\n First name: ${event.user.first_name}\n Last name: ${event.user.last_name}\n Email: ${event.user.email}";
+    BuildContext? context = SingleInstanceService.navigatorKey.currentContext;
+    Clipboard.setData(ClipboardData(text: userData));
+    Toast().success(context!, 'Success Copy user info');
+    Share.share(userData);
   }
 }

@@ -31,19 +31,20 @@ class _UpdateUserInfoState extends State<UpdateUserInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(
-            "Update Users Info",
-            style: TextStyle(
-              color: Colors.blue[800],
-              fontSize: 22.sp,
-              fontWeight: FontWeight.w700,
-            ),
+        title: Text(
+          "Update Users Info",
+          style: TextStyle(
+            color: Colors.blue[800],
+            fontSize: 22.sp,
+            fontWeight: FontWeight.w700,
           ),
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          elevation: 1,
-          iconTheme: IconThemeData(color: Colors.blue[800]),
         ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 1,
+        iconTheme: IconThemeData(color: Colors.blue[800]),
+        leading: const SizedBox(),
+      ),
       body: BlocProvider(
           create: (context) => editUserBloc,
           child: UpdateInfoWidget(

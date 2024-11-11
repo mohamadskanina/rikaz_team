@@ -19,3 +19,9 @@ class UpdateUserInfoEvent extends EditUserEvent {
     return [id];
   }
 }
+
+class CopyUserInfo extends EditUserEvent {
+  final User user;
+
+  const CopyUserInfo({required this.user});
+}

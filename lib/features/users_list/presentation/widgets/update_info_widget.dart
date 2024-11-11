@@ -88,6 +88,25 @@ class UpdateInfoWidget extends StatelessWidget {
                           ),
                         ),
                       ),
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          context
+                              .read<EditUserBloc>()
+                              .add(CopyUserInfo(user: user));
+                        },
+                        icon: Icon(Icons.share, size: 20.sp),
+                        label: Text(
+                          'Share',
+                          style: TextStyle(fontSize: 16.sp),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 24.w, vertical: 12.h),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.r),
+                          ),
+                        ),
+                      ),
                       OutlinedButton.icon(
                         onPressed: () {
                           Navigator.pop(context);

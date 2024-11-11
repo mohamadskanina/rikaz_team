@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
                     scaffoldBackgroundColor: Colors.white,
                     useMaterial3: true),
                 onGenerateRoute: AppRouter.router.generator,
-                initialRoute: RoutesNames.login,
+                initialRoute: RoutesNames.homePage,
                 navigatorKey: SingleInstanceService.navigatorKey,
               ),
             );

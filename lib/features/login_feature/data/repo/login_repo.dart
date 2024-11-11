@@ -9,11 +9,10 @@ class LoginRepo {
 
   LoginRepo({required ApiService apiService}) : _apiService = apiService;
 
-  Future<Either<Failure, Map<String , dynamic>>> login(
+  Future<Either<Failure, Map<String, dynamic>>> login(
       LoginRequest loginRequest) async {
     try {
       var response = await _apiService.login(loginRequest);
-      print("left response");
       return right(response);
     } catch (e) {
       if (e is DioException) {

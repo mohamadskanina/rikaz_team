@@ -14,7 +14,7 @@ class ExcelBloc extends Bloc<ExcelEvent, ExcelState> {
     on<ExcelEvent>((event, emit) {
       event.when(exoprtToExcel: (users) async {
         emit(const ExcelState.loading());
-        var result = await expotExcel(users);
+        var result = await exportExcel(users);
         result.fold((error) {
           emit(ExcelState.failure(message: error));
         }, (users) {
@@ -24,55 +24,72 @@ class ExcelBloc extends Bloc<ExcelEvent, ExcelState> {
     });
   }
 
-  Future<Either<String, bool>> expotExcel(List<User> users) async {
+  Future<Either<String, bool>> exportExcel(List<User> users) async {
     try {
-      final Excel excel = Excel.createExcel();
+      final excel = Excel.createExcel();
       excel.rename(excel.getDefaultSheet()!, "Users Sheet");
 
-      Sheet sheet = excel["Users Sheet"];
+      final sheet = excel["Users Sheet"];
 
-      var cell = sheet.cell(CellIndex.indexByString("A1"));
-      cell.value = TextCellValue("user_id");
-
-      var cell2 = sheet.cell(CellIndex.indexByString("B1"));
-      cell2.value = TextCellValue("user_name");
-
-      var cell3 = sheet.cell(CellIndex.indexByString("C1"));
-      cell3.value = TextCellValue("user_email");
+      _addHeader(sheet);
 
       for (var i = 0; i < users.length; i++) {
-        var cell4 = sheet.cell(CellIndex.indexByString("A${i+2}"));
-        cell4.value = IntCellValue(users[i].id);
-
-        cell4 = sheet.cell(CellIndex.indexByString("B${i+2}"));
-        cell4.value = TextCellValue('${users[i].first_name }${users[i].last_name}');
-
-        cell4 = sheet.cell(CellIndex.indexByString("C${i+2}"));
-        cell4.value = TextCellValue(users[i].email);
+        _addUser(sheet, users[i], i + 2);
       }
 
-      sheet.setColumnAutoFit(0);
-      sheet.setColumnAutoFit(1);
-      sheet.setColumnAutoFit(2);
+      _autoFitColumns(sheet);
 
       if (kIsWeb) {
-        // download on browser
-        final blob = html.Blob([excel.save(fileName: "users.xlsx")], 'files/xlsx');
-        final url = html.Url.createObjectUrlFromBlob(blob);
-
-        html.AnchorElement(href: url)
-          ..setAttribute("download", "users.xlsx")
-          ..click();
-        html.Url.revokeObjectUrl(url);
+        _downloadOnBrowser(excel);
       } else {
-        // download on mobiles or disktop
-        var directory = await getApplicationDocumentsDirectory();
-        final file = File('${directory.path}/users.xlsx');
-        await file.writeAsBytes(excel.save()!);
+        _downloadOnMobileOrDesktop(excel);
       }
+
       return const Right(true);
     } catch (e) {
-      return const Left("failed to emport excel file");
+      return const Left("Failed to export excel file");
     }
+  }
+
+  void _addHeader(Sheet sheet) {
+    sheet.cell(CellIndex.indexByString("A1")).value = TextCellValue("user_id");
+    sheet.cell(CellIndex.indexByString("B1")).value =
+        TextCellValue("user_name");
+    sheet.cell(CellIndex.indexByString("C1")).value =
+        TextCellValue("user_email");
+  }
+
+  void _addUser(Sheet sheet, User user, int row) {
+    sheet.cell(CellIndex.indexByString("A$row")).value = IntCellValue(user.id);
+    sheet.cell(CellIndex.indexByString("B$row")).value =
+        TextCellValue('${user.first_name} ${user.last_name}');
+    sheet.cell(CellIndex.indexByString("C$row")).value =
+        TextCellValue(user.email);
+  }
+
+  void _autoFitColumns(Sheet sheet) {
+    sheet.setColumnAutoFit(0);
+    sheet.setColumnAutoFit(1);
+    sheet.setColumnAutoFit(2);
+  }
+
+  void _downloadOnBrowser(Excel excel) {
+    final blob = html.Blob([excel.save(fileName: "users.xlsx")], 'files/xlsx');
+    final url = html.Url.createObjectUrlFromBlob(blob);
+
+    html.AnchorElement(href: url)
+      ..setAttribute("download", "users.xlsx")
+      ..click();
+    html.Url.revokeObjectUrl(url);
+  }
+
+  void _downloadOnMobileOrDesktop(Excel excel) async {
+    // download on mobiles or disktop
+    var fileBytes = excel.save();
+    var directory = await getApplicationDocumentsDirectory();
+
+    File('${directory.path}/users_list.xlsx')
+      ..createSync(recursive: true)
+      ..writeAsBytesSync(fileBytes!);
   }
 }
