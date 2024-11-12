@@ -2,13 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rikaz_team/core/services/services_locator.dart';
+import 'package:rikaz_team/core/widgets/toast.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
+import 'package:rikaz_team/features/offline_mode_ui/controller/internet_cubit.dart';
 import 'package:rikaz_team/routes/router_screens.dart';
 import 'package:rikaz_team/routes/routes_name.dart';
 import 'package:toastification/toastification.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  // @override
+  // void dispose() {
+  //   _connectivitySubscription.cancel();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +31,14 @@ class MyApp extends StatelessWidget {
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (context, child) {
-            return BlocProvider(
-              create: (context) => sl<LoginBloc>(),
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => InternetCubit(),
+                  lazy: false,
+                ),
+                BlocProvider(create: (context) => sl<LoginBloc>()),
+              ],
               child: MaterialApp(
                 title: 'Users Managment',
                 debugShowCheckedModeBanner: false,
@@ -34,6 +53,18 @@ class MyApp extends StatelessWidget {
                 onGenerateRoute: AppRouter.router.generator,
                 initialRoute: RoutesNames.login,
                 navigatorKey: SingleInstanceService.navigatorKey,
+                builder: (context, child) {
+                  return BlocListener<InternetCubit, InternetState>(
+                    listener: (context, state) {
+                      if (state.isConnected) {
+                        InternetToast.online(context);
+                      } else {
+                        InternetToast.offline(context);
+                      }
+                    },
+                    child: child,
+                  );
+                },
               ),
             );
           }),

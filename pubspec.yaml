@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cached_network_image: ^3.4.1
+  connectivity_plus: ^6.1.0
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   dio: ^5.7.0
@@ -42,6 +43,7 @@ dependencies:
   freezed: any
   freezed_annotation: any
   get_it: ^8.0.2
+  hydrated_bloc: ^9.1.5
   image_picker: ^1.1.2
   json_serializable: any
   lottie: ^3.1.3
