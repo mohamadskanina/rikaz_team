@@ -1,5 +1,10 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rikaz_team/core/services/services_locator.dart';
+import 'package:rikaz_team/features/add_user_feature/logic/bloc/createuser_bloc.dart';
+import 'package:rikaz_team/features/add_user_feature/ui/add_user_screen.dart';
+import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
 import 'package:rikaz_team/features/login_feature/ui/login_screen.dart';
 import 'package:rikaz_team/features/users_list/presentation/screens/update_user_info.dart';
 import 'package:rikaz_team/routes/routes_name.dart';
@@ -15,12 +20,27 @@ void configureRoutes(FluroRouter router) {
       },
     ),
   );
-  
+
   router.define(
     RoutesNames.login,
     handler: Handler(
       handlerFunc: (context, parameters) {
-        return const LoginScreen();
+        return BlocProvider(
+          create: (context) => sl<LoginBloc>(),
+          child: const LoginScreen(),
+        );
+      },
+    ),
+  );
+
+  router.define(
+    RoutesNames.createUser,
+    handler: Handler(
+      handlerFunc: (context, parameters) {
+        return BlocProvider(
+          create: (context) => sl<CreateuserBloc>(),
+          child: const AddUserScreen(),
+        );
       },
     ),
   );

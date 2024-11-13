@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rikaz_team/core/helpers/extensions.dart';
+import 'package:rikaz_team/core/services/services_locator.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
+import 'package:rikaz_team/core/widgets/toast.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_state.dart';
 import 'package:rikaz_team/routes/router_screens.dart';
@@ -70,30 +72,35 @@ void setupErrorState(BuildContext context, String error) {
 }
 
 void setupSuccessState(BuildContext context, String success) {
+  BuildContext? contextwidget =
+      SingleInstanceService.navigatorKey.currentContext;
   context.pop();
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      icon: const Icon(
-        Icons.check,
-        color: Colors.green,
-        size: 32,
-      ),
-      content: Text(
-        success,
-        style: TextStyles.font13BlueRegular,
-      ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            AppRouter.router.navigateTo(context, RoutesNames.homePage);
-          },
-          child: Text(
-            'Go To Home',
-            style: TextStyles.font14DarkBlueMedium,
-          ),
-        ),
-      ],
-    ),
-  );
+  AppRouter.router.navigateTo(context, RoutesNames.homePage);
+  Toast().success(contextwidget!, 'Login Successfuly Complated!');
+
+  // showDialog(
+  //   context: context,
+  //   builder: (context) => AlertDialog(
+  //     icon: const Icon(
+  //       Icons.check,
+  //       color: Colors.green,
+  //       size: 32,
+  //     ),
+  //     content: Text(
+  //       success,
+  //       style: TextStyles.font13BlueRegular,
+  //     ),
+  //     actions: [
+  //       TextButton(
+  //         onPressed: () {
+  //           AppRouter.router.navigateTo(context, RoutesNames.homePage);
+  //         },
+  //         child: Text(
+  //           'Go To Home',
+  //           style: TextStyles.font14DarkBlueMedium,
+  //         ),
+  //       ),
+  //     ],
+  //   ),
+  // );
 }
