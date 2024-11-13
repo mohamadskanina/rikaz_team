@@ -73,7 +73,7 @@ void setupErrorState(BuildContext context, String error) {
 
 void setupSuccessState(BuildContext context, String success) {
   BuildContext? contextwidget =
-      SingleInstanceService.navigatorKey.currentContext;
+      SingleInstanceService.context;
   context.pop();
   AppRouter.router.navigateTo(context, RoutesNames.homePage);
   Toast().success(contextwidget!, 'Login Successfuly Complated!');

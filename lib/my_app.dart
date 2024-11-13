@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ToastificationWrapper(
       child: ScreenUtilInit(
-          designSize: const Size(375, 812),
+          designSize: const Size(492, 948),
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (context, child) {

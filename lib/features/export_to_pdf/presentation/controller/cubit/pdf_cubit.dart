@@ -23,7 +23,7 @@ class PdfCubit extends Cubit<PdfState> {
 
   Future<void> printPdfReport() async {
     if (state.loading) return;
-    BuildContext? context = SingleInstanceService.navigatorKey.currentContext;
+    BuildContext? context = SingleInstanceService.context;
     if (context != null) {
       showDialog(
           context: context,
@@ -49,7 +49,7 @@ class PdfCubit extends Cubit<PdfState> {
 
   Future<void> savePdfLocalStorage() async {
     if (state.loading) return;
-    BuildContext? context = SingleInstanceService.navigatorKey.currentContext;
+    BuildContext? context = SingleInstanceService.context;
     if (context != null) {
       showDialog(
           context: context,

@@ -30,7 +30,7 @@ class EditUserBloc extends Bloc<EditUserEvent, EditUserState> {
   FutureOr<void> _updateUsersHandler(
       UpdateUserInfoEvent event, Emitter<EditUserState> emit) async {
     if (state.loading) return;
-    BuildContext? context = SingleInstanceService.navigatorKey.currentContext;
+    BuildContext? context = SingleInstanceService.context;
     if (context != null) {
       if (emailController.text.isEmpty ||
           !emailController.text.contains('@') ||
@@ -78,9 +78,10 @@ class EditUserBloc extends Bloc<EditUserEvent, EditUserState> {
       CopyUserInfo event, Emitter<EditUserState> emit) {
     final String userData =
         "User id: ${event.user.id}\n First name: ${event.user.first_name}\n Last name: ${event.user.last_name}\n Email: ${event.user.email}";
-    BuildContext? context = SingleInstanceService.navigatorKey.currentContext;
+    BuildContext? context = SingleInstanceService.context;
     Clipboard.setData(ClipboardData(text: userData));
-    Toast().success(context!, 'Success Copy user info');
+    Toast().success(context!,
+        'Success Copy user info');
     Share.share(userData);
   }
 }
