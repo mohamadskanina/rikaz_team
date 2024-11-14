@@ -33,6 +33,7 @@ class ViewUsersList extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
+          leading: Container(),
           centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 1,

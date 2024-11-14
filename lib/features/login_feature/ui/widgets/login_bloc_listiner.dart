@@ -86,7 +86,8 @@ void setupSuccessState(BuildContext context, String success) {
       actions: [
         TextButton(
           onPressed: () {
-            AppRouter.router.navigateTo(context, RoutesNames.homePage);
+            AppRouter.router
+                .navigateTo(context, RoutesNames.homePage,);
           },
           child: Text(
             'Go To Home',
