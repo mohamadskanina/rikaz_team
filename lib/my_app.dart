@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
                     cardColor: Colors.blue.shade50,
                     useMaterial3: true),
                 onGenerateRoute: AppRouter.router.generator,
-                initialRoute: RoutesNames.homePage,
+                initialRoute: RoutesNames.login,
                 navigatorKey: SingleInstanceService.navigatorKey,
                 builder: (context, child) {
                   return BlocListener<InternetCubit, InternetState>(
