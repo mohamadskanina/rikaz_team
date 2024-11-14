@@ -29,7 +29,7 @@ class ViewUsersList extends StatelessWidget {
             "User management",
             style: TextStyle(
               color: Colors.blue[800],
-              fontSize: 22.sp,
+              fontSize: 22,
               fontWeight: FontWeight.w700,
             ),
           ),

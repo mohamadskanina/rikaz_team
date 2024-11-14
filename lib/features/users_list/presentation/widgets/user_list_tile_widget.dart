@@ -13,7 +13,7 @@ class UserListTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12).r,
       child: Material(
         elevation: 3,
         borderRadius: BorderRadius.circular(10.r),
@@ -23,7 +23,7 @@ class UserListTileWidget extends StatelessWidget {
             imageUrl: user.avatar,
             placeholder: (context, url) => const CircularProgressIndicator(),
             errorWidget: (context, url, error) =>
-                const Icon(Icons.error, color: Colors.red),
+                const Icon(Icons.error_outline_rounded, color: Colors.red),
             imageBuilder: (context, imageProvider) => CircleAvatar(
               backgroundImage: imageProvider,
               radius: 30.r,
@@ -46,6 +46,7 @@ class UserListTileWidget extends StatelessWidget {
           ),
           trailing: IconButton(
             icon: Icon(
+              // weight: 30.w,
               Icons.info_outline,
               color: Colors.grey[600],
             ),

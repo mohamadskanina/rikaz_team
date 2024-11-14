@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+UserState _$UserStateFromJson(Map<String, dynamic> json) {
+  return _UserState.fromJson(json);
+}
+
 /// @nodoc
 mixin _$UserState {
   List<User> get users => throw _privateConstructorUsedError;
@@ -21,6 +25,7 @@ mixin _$UserState {
   bool get error => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserStateCopyWith<UserState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -122,14 +127,17 @@ class __$$UserStateImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$UserStateImpl implements _UserState {
   const _$UserStateImpl(
-      {final List<User> users = const <User>[],
+      {final List<User> users = const [],
       this.loading = false,
       this.error = false,
       this.errorMessage = ''})
       : _users = users;
+
+  factory _$UserStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserStateImplFromJson(json);
 
   final List<User> _users;
   @override
@@ -167,6 +175,7 @@ class _$UserStateImpl implements _UserState {
                 other.errorMessage == errorMessage));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -180,6 +189,13 @@ class _$UserStateImpl implements _UserState {
   @pragma('vm:prefer-inline')
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
       __$$UserStateImplCopyWithImpl<_$UserStateImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserStateImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _UserState implements UserState {
@@ -188,6 +204,9 @@ abstract class _UserState implements UserState {
       final bool loading,
       final bool error,
       final String errorMessage}) = _$UserStateImpl;
+
+  factory _UserState.fromJson(Map<String, dynamic> json) =
+      _$UserStateImpl.fromJson;
 
   @override
   List<User> get users;
