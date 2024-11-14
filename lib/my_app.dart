@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
                     cardColor: Colors.blue.shade50,
                     useMaterial3: true),
                 onGenerateRoute: AppRouter.router.generator,
-                initialRoute: RoutesNames.login,
+                initialRoute: RoutesNames.homePage,
                 navigatorKey: SingleInstanceService.navigatorKey,
               ),
             );

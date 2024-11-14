@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:universal_html/html.dart' as html;
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:lottie/lottie.dart';
@@ -18,7 +18,7 @@ part 'pdf_state.dart';
 part 'pdf_cubit.freezed.dart';
 
 class PdfCubit extends Cubit<PdfState> {
-  PdfCubit() : super(PdfState.initial());
+  PdfCubit() : super(const PdfState.initial());
   UserState usersState = sl<UserBloc>().state;
 
   Future<void> printPdfReport() async {

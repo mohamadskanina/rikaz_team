@@ -45,6 +45,7 @@ class _UpdateUserInfoState extends State<UpdateUserInfo> {
         backgroundColor: Colors.white,
         elevation: 1,
         iconTheme: IconThemeData(color: Colors.blue[800]),
+      leading: const SizedBox(),
       ),
       body: BlocProvider(
           create: (context) => editUserBloc,
