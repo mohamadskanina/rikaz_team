@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:rikaz_team/core/services/services_locator.dart';
 import 'package:rikaz_team/features/users_list/presentation/widgets/user_list_tile_widget.dart';
 
 import '../controller/view_user_bloc/user_bloc.dart';
@@ -18,6 +19,7 @@ class _UserListWidgetState extends State<UserListWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UserBloc, UserState>(
+      bloc: context.read<UserBloc>()..add(GetUsersEvent()),
       buildWhen: (previous, current) =>
           previous.loading != current.loading ||
           previous.error != current.error,
