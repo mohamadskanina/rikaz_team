@@ -6,6 +6,14 @@ part of 'user_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+// UserState _$UserStateFromJson(Map<String, dynamic> json) => UserState(
+//       users: (json['users'] as List<dynamic>)
+//           .map((e) => User.fromJson(e as Map<String, dynamic>))
+//           .toList(),
+//       loading: json['loading'] as bool,
+//       error: json['error'] as bool,
+//       errorMessage: json['errorMessage'] as String,
+//     );
 
 Map<String, dynamic> _$UserStateToJson(UserState instance) => <String, dynamic>{
       'users': instance.users,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:rikaz_team/features/users_list/data/data_source/user_local_data_source.dart';
 import 'package:rikaz_team/features/users_list/data/data_source/user_remote_data_source.dart';
 import 'package:rikaz_team/features/users_list/data/repository/users_repository.dart';
 import 'package:rikaz_team/features/users_list/domain/repository/base_users_repository.dart';
@@ -17,7 +18,6 @@ import 'package:rikaz_team/features/add_user_feature/logic/bloc/createuser_bloc.
 import 'package:rikaz_team/features/login_feature/data/apis/api_service.dart';
 import 'package:rikaz_team/features/login_feature/data/repo/login_repo.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
-
 
 final sl = GetIt.instance;
 
@@ -39,15 +39,18 @@ class ServicesLocator {
     sl.registerLazySingleton(() => UpdateUserInfoUseCase(sl()));
 
     /// REPOSESITORY
-    sl.registerLazySingleton<BaseUsersRepository>(() => UsersRepository(sl()));
+    sl.registerLazySingleton<BaseUsersRepository>(
+        () => UsersRepository(sl(), sl()));
 
     /// DATA SOURCE
     sl.registerLazySingleton<BaseUserRemoteDataSource>(
         () => UserRemoteDataSource());
+    sl.registerLazySingleton<BaseUserLocalDataSource>(
+        () => UserLocalDataSource());
   }
-  
-  void _loginSL(){
-        /// Login
+
+  void _loginSL() {
+    /// Login
     // dio
     Dio dio = DioFactory.getDio();
     // api service
@@ -59,7 +62,8 @@ class ServicesLocator {
 
     /// Create User
     // create_user repo
-    sl.registerLazySingleton<CreateUserRepo>(() => CreateUserRepo(apiService: sl()));
+    sl.registerLazySingleton<CreateUserRepo>(
+        () => CreateUserRepo(apiService: sl()));
     // bloc
     sl.registerFactory<CreateuserBloc>(() => CreateuserBloc(sl()));
   }
@@ -73,4 +77,5 @@ class GlobalChangeNotifier<T> {
 class SingleInstanceService {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
+  static final BuildContext? context = navigatorKey.currentContext;
 }

@@ -27,17 +27,22 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
       GetUsersEvent event, Emitter<UserState> emit) async {
     emit(state.copyWith(loading: true));
 
-    BuildContext? context = SingleInstanceService.navigatorKey.currentContext;
+    BuildContext? context = SingleInstanceService.context;
     List<ConnectivityResult> connectionStatus =
         BlocProvider.of<InternetCubit>(context!).connectionStatus;
     if (connectionStatus.contains(ConnectionState.none)) {
-      if (state.users.isEmpty) {
+      final resultLocal = getUsersUseCase.localCall();
+      if (resultLocal.isEmpty) {
         emit(state.copyWith(
             loading: false,
             error: true,
             errorMessage: 'Please check connection and retry'));
       } else {
-        emit(state.copyWith(loading: false, error: false));
+        emit(state.copyWith(
+          loading: false,
+          error: false,
+          users: resultLocal,
+        ));
         Toast().error(context, 'Currently offline, showifng cached data');
       }
     } else {

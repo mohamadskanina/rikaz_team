@@ -13,22 +13,32 @@ class UserListTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12).r,
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12).r,
       child: Material(
         elevation: 3,
         borderRadius: BorderRadius.circular(10.r),
         color: Colors.white,
         child: ListTile(
-          leading: CachedNetworkImage(
-            imageUrl: user.avatar,
-            placeholder: (context, url) => const CircularProgressIndicator(),
-            errorWidget: (context, url, error) =>
-                const Icon(Icons.error_outline_rounded, color: Colors.red),
-            imageBuilder: (context, imageProvider) => CircleAvatar(
-              backgroundImage: imageProvider,
-              radius: 30.r,
-            ),
-          ),
+          leading: user.avatar == ''
+              ? CircleAvatar(
+                  radius: 30.r,
+                  child: Image.asset(
+                    "assets/images/userimage.jpeg",
+                    fit: BoxFit.contain,
+                  ),
+                )
+              : CachedNetworkImage(
+                  imageUrl: user.avatar,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(
+                      Icons.error_outline_rounded,
+                      color: Colors.red),
+                  imageBuilder: (context, imageProvider) => CircleAvatar(
+                    backgroundImage: imageProvider,
+                    radius: 30.r,
+                  ),
+                ),
           title: Text(
             '${user.first_name} ${user.last_name}',
             style: TextStyle(

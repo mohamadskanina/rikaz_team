@@ -4,5 +4,6 @@ import '../entities/user.dart';
 
 abstract class BaseUsersRepository {
   ResultFuture<List<User>> getUsersList();
+  List<User> getLocalUser();
   ResultVoid updateUserInfo({required User user});
 }

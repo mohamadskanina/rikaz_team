@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'user.g.dart'; // Add this part directive for code generation
 
 @JsonSerializable()
-class User extends Equatable {
+class User extends Equatable{
   final int id;
   final String email;
   final String first_name;
