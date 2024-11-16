@@ -16,7 +16,7 @@ class LanguageCubit extends HydratedCubit<LanguageState> {
   List<SupportedLanguage> get _supportedLanguages {
     return [
       SupportedLanguage(
-        langName: 'Arabic',
+        langName: 'العربية',
         langCode: 'ar',
         countryCode: 'SY',
       ),

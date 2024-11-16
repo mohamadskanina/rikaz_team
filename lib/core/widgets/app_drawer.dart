@@ -52,7 +52,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: DropdownField(
                   languages:
-                      state.supportedLanguages!.map((e) => e.langCode).toList(),
+                      state.supportedLanguages!,
                   selectedValue: state.locale.languageCode,
                   onChanged: (code) {
                     if (code != state.locale.languageCode && code != null) {
@@ -70,7 +70,7 @@ class _AppDrawerState extends State<AppDrawer> {
 }
 
 class DropdownField extends StatefulWidget {
-  final List<String> languages;
+  final List<SupportedLanguage> languages;
   final String? selectedValue;
   final void Function(String?)? onChanged;
   const DropdownField({required this.languages, this.onChanged, super.key, this.selectedValue});
@@ -92,10 +92,10 @@ class _DropdownFieldState extends State<DropdownField> {
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
       value: selectedValue,
-      items: widget.languages.map((String value) {
+      items: widget.languages.map((SupportedLanguage value) {
         return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
+          value: value.langCode,
+          child: Text(value.langName),
         );
       }).toList(),
       onChanged: (String? newValue) {
