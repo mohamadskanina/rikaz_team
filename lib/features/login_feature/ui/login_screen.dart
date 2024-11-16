@@ -5,6 +5,7 @@ import 'package:rikaz_team/features/login_feature/ui/widgets/dont_have_account.d
 import 'package:rikaz_team/features/login_feature/ui/widgets/email_and_password_text_feild.dart';
 import 'package:rikaz_team/features/login_feature/ui/widgets/login_bloc_listiner.dart';
 import 'package:rikaz_team/features/login_feature/ui/widgets/login_text_top.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

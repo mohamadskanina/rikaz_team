@@ -6,6 +6,7 @@ import 'package:rikaz_team/core/widgets/app_text_button.dart';
 import 'package:rikaz_team/core/widgets/app_text_form_feild.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_event.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class EmailAndPasswordTextFeild extends StatefulWidget {
   const EmailAndPasswordTextFeild({super.key});
@@ -24,7 +25,7 @@ class _EmailAndPasswordTextFeildState extends State<EmailAndPasswordTextFeild> {
       child: Column(
         children: [
           AppTextFormField(
-            hintText: "Email",
+            hintText: Lang.of(context).email,
             controller: context.read<LoginBloc>().emailController,
             validator: (vlaue) {
               if (vlaue == null || vlaue.isEmpty) {
@@ -36,7 +37,7 @@ class _EmailAndPasswordTextFeildState extends State<EmailAndPasswordTextFeild> {
             height: 18,
           ),
           AppTextFormField(
-            hintText: "Password",
+            hintText: Lang.of(context).password,
             controller: context.read<LoginBloc>().passwordController,
             isObscureText: isObscureText,
             validator: (value) {

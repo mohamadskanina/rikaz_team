@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:rikaz_team/features/users_list/presentation/controller/edit_user_bloc/edit_user_bloc.dart';
 import 'package:rikaz_team/features/users_list/presentation/controller/edit_user_bloc/edit_user_state.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 import '../../domain/entities/user.dart';
 
@@ -53,17 +54,17 @@ class UpdateInfoWidget extends StatelessWidget {
                   SizedBox(height: 24.h),
                   _buildTextField(
                     controller: editUserBloc.firstNameController,
-                    label: 'First Name',
+                    label: Lang.of(context).firstName,
                   ),
                   SizedBox(height: 16.h),
                   _buildTextField(
                     controller: editUserBloc.lastNameController,
-                    label: 'Last Name',
+                    label: Lang.of(context).lastName,
                   ),
                   SizedBox(height: 16.h),
                   _buildTextField(
                     controller: editUserBloc.emailController,
-                    label: 'Email',
+                    label: Lang.of(context).email,
                   ),
                   SizedBox(height: 24.h),
                   Row(
@@ -77,7 +78,7 @@ class UpdateInfoWidget extends StatelessWidget {
                         },
                         icon: Icon(Icons.save, size: 20.sp),
                         label: Text(
-                          'Save',
+                          Lang.of(context).save,
                           style: TextStyle(fontSize: 16.sp),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -113,7 +114,7 @@ class UpdateInfoWidget extends StatelessWidget {
                         },
                         icon: Icon(Icons.cancel, size: 20.sp),
                         label: Text(
-                          'Cancel',
+                          Lang.of(context).cancel,
                           style: TextStyle(fontSize: 16.sp),
                         ),
                         style: OutlinedButton.styleFrom(

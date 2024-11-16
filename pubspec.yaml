@@ -47,6 +47,8 @@ dependencies:
   hive_flutter: ^1.1.0
   hydrated_bloc: ^9.1.5
   image_picker: ^1.1.2
+  intl: any
+  intl_utils: ^2.8.7
   json_serializable: any
   lottie: ^3.1.3
   path_provider: ^2.1.5
@@ -57,6 +59,7 @@ dependencies:
   share_plus: ^10.1.2
   toastification: ^2.3.0
   universal_html: ^2.2.4
+  flutter_localization: any
 
 
 dev_dependencies:
@@ -100,6 +103,11 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_intl:
+  enabled: true
+  class_name: Lang
+  main_locale: en_US
+  arb_dir: lib/localization/l10n
+  output_dir: lib/localization/generated

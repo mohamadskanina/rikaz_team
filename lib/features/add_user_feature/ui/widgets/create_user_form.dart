@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rikaz_team/core/helpers/space_helper.dart';
 import 'package:rikaz_team/core/widgets/app_text_form_feild.dart';
 import 'package:rikaz_team/features/add_user_feature/logic/bloc/createuser_bloc.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class CreateUserForm extends StatelessWidget {
   const CreateUserForm({super.key});
@@ -13,7 +14,7 @@ class CreateUserForm extends StatelessWidget {
         key: context.read<CreateuserBloc>().formKey,
         child: Column(children: [
       AppTextFormField(
-        hintText: "Name",
+        hintText: Lang.of(context).name,
         controller: context.read<CreateuserBloc>().nameController,
         validator: (vlaue) {
           if (vlaue == null || vlaue.isEmpty) {
@@ -23,7 +24,7 @@ class CreateUserForm extends StatelessWidget {
       ),
       verticalspace(10),
       AppTextFormField(
-        hintText: "Email",
+        hintText: Lang.of(context).email,
         controller: context.read<CreateuserBloc>().emailController,
         validator: (value) {
           if (value == null || value.isEmpty) {

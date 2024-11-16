@@ -8,6 +8,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:rikaz_team/core/services/services_locator.dart';
 import 'package:rikaz_team/core/widgets/toast.dart';
 import 'package:rikaz_team/features/offline_mode_ui/controller/internet_cubit.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 import '../../../../../core/usecase/base_usecase.dart';
 import '../../../domain/usecase/get_users.dart';
 import 'user_state.dart';
@@ -36,14 +37,14 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
         emit(state.copyWith(
             loading: false,
             error: true,
-            errorMessage: 'Please check connection and retry'));
+            errorMessage: Lang.current.checkConnection));
       } else {
         emit(state.copyWith(
           loading: false,
           error: false,
           users: resultLocal,
         ));
-        Toast().error(context, 'Currently offline, showifng cached data');
+        Toast().error(context, Lang.current.offlineCachedData);
       }
     } else {
       final result = await getUsersUseCase(const NoParameters());

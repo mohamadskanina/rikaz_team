@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 import 'package:toastification/toastification.dart';
 
 class Toast {
@@ -49,7 +50,7 @@ class InternetToast {
       context: context,
       type: ToastificationType.success,
       style: ToastificationStyle.minimal,
-      title: const Text("Back online"),
+      title:  Text(Lang.current.backOnline),
       alignment: Alignment.bottomLeft,
       showProgressBar: false,
       autoCloseDuration: const Duration(seconds: 2),
@@ -62,7 +63,7 @@ class InternetToast {
       type: ToastificationType.error,
       icon: const Icon(Icons.cloud_off),
       style: ToastificationStyle.minimal,
-      title: const Text("You are offline"),
+      title:  Text(Lang.current.youAreOffline),
       alignment: Alignment.bottomLeft,
       showProgressBar: false,
     );
