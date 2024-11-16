@@ -9,7 +9,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final LoginRepo _loginRepo;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+  final loginKey = GlobalKey<FormState>();
   LoginBloc(this._loginRepo) : super(const LoginState.initial()) {
     on<LoginEvent>((event, emit) async {
       await event.when(

@@ -33,7 +33,7 @@ class ViewUsersList extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          leading: Container(),
+          leading: const SizedBox.shrink(),
           centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 1,

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rikaz_team/core/helpers/space_helper.dart';
-import 'package:rikaz_team/core/theming/styles.dart';
-import 'package:rikaz_team/core/widgets/app_text_button.dart';
-import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
-import 'package:rikaz_team/features/login_feature/logic/bloc/login_event.dart';
 import 'package:rikaz_team/features/login_feature/ui/widgets/dont_have_account.dart';
 import 'package:rikaz_team/features/login_feature/ui/widgets/email_and_password_text_feild.dart';
 import 'package:rikaz_team/features/login_feature/ui/widgets/login_bloc_listiner.dart';
@@ -30,25 +25,8 @@ class LoginScreen extends StatelessWidget {
               // wellcome back in top screen
               const LoginTextTop(),
               verticalspace(36),
-              // login form --> email and password
+              // login form --> email and password and login button 
               const EmailAndPasswordTextFeild(),
-              verticalspace(15),
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyles.font13BlueRegular,
-                ),
-              ),
-              verticalspace(30),
-              // login button 
-              AppTextButton(
-                buttonText: "Login",
-                textStyle: TextStyles.font16WhiteSemiBold,
-                onPressed: () {
-                  validateThenDoLogin(context);
-                },
-              ),
               verticalspace(30),
               const DontHaveAccountText(),
               const LoginBlocListiner(),
@@ -59,9 +37,5 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  void validateThenDoLogin(BuildContext context) {
-    if (context.read<LoginBloc>().formKey.currentState!.validate()) {
-      context.read<LoginBloc>().add(const LoginEvent.login());
-    }
-  }
+  
 }

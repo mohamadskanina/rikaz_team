@@ -73,4 +73,6 @@ class GlobalChangeNotifier<T> {
 class SingleInstanceService {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
+  
+  static BuildContext? get context => navigatorKey.currentContext;
 }
