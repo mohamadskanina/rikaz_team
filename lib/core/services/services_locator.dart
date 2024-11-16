@@ -39,11 +39,13 @@ class ServicesLocator {
     sl.registerLazySingleton(() => UpdateUserInfoUseCase(sl()));
 
     /// REPOSESITORY
-    sl.registerLazySingleton<BaseUsersRepository>(() => UsersRepository(sl()));
+    sl.registerLazySingleton<BaseUsersRepository>(() => UsersRepository(sl(),sl()));
 
     /// DATA SOURCE
     sl.registerLazySingleton<BaseUserRemoteDataSource>(
         () => UserRemoteDataSource());
+    sl.registerLazySingleton<BaseUserLocalDataSource>(
+        () => UserLocalDataSource());
   }
 
   void _loginSL() {
@@ -66,14 +68,13 @@ class ServicesLocator {
     sl.registerLazySingleton<BaseUserLocalDataSource>(
         () => UserLocalDataSource());
 
-  void _loginSL() {
-    /// Login
-    sl.registerLazySingleton<CreateUserRepo>(
-        () => CreateUserRepo(apiService: sl()));
-    // bloc
-    sl.registerFactory<CreateuserBloc>(() => CreateuserBloc(sl()));
+      /// Login
+      sl.registerLazySingleton<CreateUserRepo>(
+          () => CreateUserRepo(apiService: sl()));
+      // bloc
+      sl.registerFactory<CreateuserBloc>(() => CreateuserBloc(sl()));
+    }
   }
-}
 
 class GlobalChangeNotifier<T> {
   final PublishSubject<(String key, T)> subject =
@@ -85,5 +86,4 @@ class SingleInstanceService {
       GlobalKey<NavigatorState>();
 
   static BuildContext? get context => navigatorKey.currentContext;
-  static final BuildContext? context = navigatorKey.currentContext;
 }

@@ -16,8 +16,6 @@ import 'package:rikaz_team/routes/routes_name.dart';
 import 'package:toastification/toastification.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'features/offline_mode_ui/controller/internet_cubit.dart';
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 

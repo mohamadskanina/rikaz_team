@@ -76,7 +76,7 @@ void setupSuccessState(BuildContext context, String success) {
   BuildContext? contextwidget = SingleInstanceService.context;
   context.pop();
   AppRouter.router.navigateTo(context, RoutesNames.homePage);
-  Toast().success(contextwidget, Lang.current.loginSuccess);
+  Toast().success(contextwidget!, Lang.current.loginSuccess);
 
   // showDialog(
   //   context: context,
