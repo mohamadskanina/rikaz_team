@@ -122,19 +122,15 @@ class CardGenWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          context.read<CardGenCubit>().generateUserCard();
-                        },
-                        label: Text(Lang.of(context).share),
-                        icon: Icon(Icons.share),
-                      ),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      context.read<CardGenCubit>().generateUserCard();
+                    },
+                    label: Text(Lang.of(context).share),
+                    icon: Icon(Icons.share),
+                  ),
                 )
               ],
             ),
