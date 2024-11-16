@@ -60,14 +60,7 @@ class ServicesLocator {
     sl.registerFactory<LoginBloc>(() => LoginBloc(sl()));
 
     /// Create User
-    // create_user repo
-    sl.registerLazySingleton<CreateUserRepo>(
-        () => CreateUserRepo(apiService: sl()));
-    sl.registerLazySingleton<BaseUsersRepository>(
-        () => UsersRepository(sl(), sl()));
-    sl.registerLazySingleton<BaseUserLocalDataSource>(
-        () => UserLocalDataSource());
-
+ 
       /// Login
       sl.registerLazySingleton<CreateUserRepo>(
           () => CreateUserRepo(apiService: sl()));

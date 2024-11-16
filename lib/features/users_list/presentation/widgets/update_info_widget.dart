@@ -32,6 +32,16 @@ class UpdateInfoWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  Align(
+                      alignment: Alignment.topRight,
+                      child: IconButton(
+                        icon: Icon(Icons.copy),
+                        onPressed: () {
+                          context
+                              .read<EditUserBloc>()
+                              .add(CopyUserInfo(user: user));
+                        },
+                      )),
                   CircleAvatar(
                     radius: 100.r,
                     backgroundColor: Colors.grey.shade200,
@@ -79,25 +89,6 @@ class UpdateInfoWidget extends StatelessWidget {
                         icon: Icon(Icons.save, size: 20.sp),
                         label: Text(
                           Lang.of(context).save,
-                          style: TextStyle(fontSize: 16.sp),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 24.w, vertical: 12.h),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.r),
-                          ),
-                        ),
-                      ),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          context
-                              .read<EditUserBloc>()
-                              .add(CopyUserInfo(user: user));
-                        },
-                        icon: Icon(Icons.share, size: 20.sp),
-                        label: Text(
-                          'Share',
                           style: TextStyle(fontSize: 16.sp),
                         ),
                         style: ElevatedButton.styleFrom(
