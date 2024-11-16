@@ -72,8 +72,7 @@ void setupErrorState(BuildContext context, String error) {
 }
 
 void setupSuccessState(BuildContext context, String success) {
-  BuildContext? contextwidget =
-      SingleInstanceService.context;
+  BuildContext? contextwidget = SingleInstanceService.context;
   context.pop();
   AppRouter.router.navigateTo(context, RoutesNames.homePage);
   Toast().success(contextwidget!, 'Login Successfuly Complated!');
@@ -94,7 +93,7 @@ void setupSuccessState(BuildContext context, String success) {
   //       TextButton(
   //         onPressed: () {
   //           AppRouter.router
-                .navigateTo(context, RoutesNames.homePage,);
+  //               .navigateTo(context, RoutesNames.homePage,);
   //         },
   //         child: Text(
   //           'Go To Home',

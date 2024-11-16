@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rikaz_team/core/services/services_locator.dart';
+import 'package:rikaz_team/core/widgets/toast.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
 import 'package:rikaz_team/routes/router_screens.dart';
 import 'package:rikaz_team/routes/routes_name.dart';
 import 'package:toastification/toastification.dart';
+
+import 'features/offline_mode_ui/controller/internet_cubit.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
