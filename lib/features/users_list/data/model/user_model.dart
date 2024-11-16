@@ -1,6 +1,7 @@
 import 'package:rikaz_team/features/users_list/domain/entities/user.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+
 part 'user_model.g.dart'; // Required for generated code
 
 @JsonSerializable()

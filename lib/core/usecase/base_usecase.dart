@@ -4,6 +4,7 @@ import '../utils/typedef.dart';
 
 abstract class BaseUseCase<T, Parameters> {
   ResultFuture<T> call(Parameters parameters);
+  T localCall();
 }
 
 class NoParameters extends Equatable {
