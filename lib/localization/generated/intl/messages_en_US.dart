@@ -25,8 +25,62 @@ class MessageLookup extends MessageLookupByLibrary {
         "arabicLanguage":
             MessageLookupByLibrary.simpleMessage("Arabic Language"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "backOnline": MessageLookupByLibrary.simpleMessage("Back online"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "checkConnection": MessageLookupByLibrary.simpleMessage(
+            "Please check connection and retry"),
+        "createUser": MessageLookupByLibrary.simpleMessage("Create User"),
+        "createUserSuccess":
+            MessageLookupByLibrary.simpleMessage("Create User Successfully!"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "dontHaveAccount":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "englishLanguage":
             MessageLookupByLibrary.simpleMessage("English Language"),
-        "userListTitle": MessageLookupByLibrary.simpleMessage("User management")
+        "enterFirstName":
+            MessageLookupByLibrary.simpleMessage("Please enter First Name"),
+        "enterLastName":
+            MessageLookupByLibrary.simpleMessage("Please enter Last Name"),
+        "enterValidEmail":
+            MessageLookupByLibrary.simpleMessage("Please enter correct email"),
+        "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+        "goToHome": MessageLookupByLibrary.simpleMessage("Go To Home"),
+        "gotIt": MessageLookupByLibrary.simpleMessage("Got it"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "homeScreen": MessageLookupByLibrary.simpleMessage("Home Screen"),
+        "invalidEmail":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "invalidPassword": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid password"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginSuccess":
+            MessageLookupByLibrary.simpleMessage("Login User Successfully"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "offlineCachedData": MessageLookupByLibrary.simpleMessage(
+            "Currently offline, showing cached data"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "print": MessageLookupByLibrary.simpleMessage("Print"),
+        "rikazCompany": MessageLookupByLibrary.simpleMessage("Rikaz Company"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "share": MessageLookupByLibrary.simpleMessage("Share"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "totalUsers": MessageLookupByLibrary.simpleMessage("Total Users is"),
+        "updateUserSuccess":
+            MessageLookupByLibrary.simpleMessage("Success update user info"),
+        "updateUsersInfo":
+            MessageLookupByLibrary.simpleMessage("Update Users Info"),
+        "userListTitle":
+            MessageLookupByLibrary.simpleMessage("User management"),
+        "usersList": MessageLookupByLibrary.simpleMessage("Users List"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back"),
+        "welcomeBackMessage": MessageLookupByLibrary.simpleMessage(
+            "We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in."),
+        "youAreOffline": MessageLookupByLibrary.simpleMessage("You are offline")
       };
 }

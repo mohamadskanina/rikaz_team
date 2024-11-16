@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rikaz_team/core/helpers/extensions.dart';
 import 'package:rikaz_team/features/add_user_feature/logic/bloc/createuser_bloc.dart';
 import 'package:rikaz_team/features/add_user_feature/logic/bloc/createuser_state.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 import '../../../../core/theming/styles.dart';
 
 class CreateUserBlocListiner extends StatelessWidget {
@@ -29,7 +30,7 @@ class CreateUserBlocListiner extends StatelessWidget {
           },
           success: () {
             context.pop();
-            setupSuccessState(context, "Create User Successfuly!");
+            setupSuccessState(context, Lang.of(context).createUserSuccess);
           },
           failure: (error) {
             setupErrorState(context, error);
@@ -61,7 +62,7 @@ void setupErrorState(BuildContext context, String error) {
             context.pop();
           },
           child: Text(
-            'Got it',
+            Lang.of(context).gotIt,
             style: TextStyles.font14DarkBlueMedium,
           ),
         ),
@@ -89,7 +90,7 @@ void setupSuccessState(BuildContext context, String success) {
             context.pop();
           },
           child: Text(
-            'Got it',
+            Lang.of(context).gotIt,
             style: TextStyles.font14DarkBlueMedium,
           ),
         ),

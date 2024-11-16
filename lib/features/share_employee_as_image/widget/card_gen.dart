@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 import 'package:screenshot/screenshot.dart';
 
 import 'package:rikaz_team/features/share_employee_as_image/controller/card_gen_cubit.dart';
@@ -127,7 +128,7 @@ class CardGenWidget extends StatelessWidget {
                     onPressed: () {
                       context.read<CardGenCubit>().generateUserCard();
                     },
-                    label: Text('Share'),
+                    label: Text(Lang.of(context).share),
                     icon: Icon(Icons.share),
                   ),
                 )

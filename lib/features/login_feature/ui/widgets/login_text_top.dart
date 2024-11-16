@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rikaz_team/core/helpers/space_helper.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class LoginTextTop extends StatelessWidget {
   const LoginTextTop({super.key});
@@ -11,12 +12,12 @@ class LoginTextTop extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Wellcome Back",
+          Lang.of(context).welcomeBack,
           style: TextStyles.font32BlueBold,
         ),
         verticalspace(8.0),
         Text(
-          'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
+          Lang.of(context).welcomeBackMessage,
           style: TextStyles.font14GrayRegular,
         ),
       ],

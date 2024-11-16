@@ -23,9 +23,65 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "arabicLanguage": MessageLookupByLibrary.simpleMessage("اللغة العربية"),
+        "back": MessageLookupByLibrary.simpleMessage("رجوع"),
+        "backOnline":
+            MessageLookupByLibrary.simpleMessage("العودة إلى الاتصال"),
+        "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+        "checkConnection": MessageLookupByLibrary.simpleMessage(
+            "يرجى التحقق من الاتصال وإعادة المحاولة"),
+        "createUser": MessageLookupByLibrary.simpleMessage("إنشاء مستخدم"),
+        "createUserSuccess":
+            MessageLookupByLibrary.simpleMessage("تم إنشاء المستخدم بنجاح!"),
+        "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
+        "dontHaveAccount":
+            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "englishLanguage":
-            MessageLookupByLibrary.simpleMessage("اللغة الإنكليزية"),
+            MessageLookupByLibrary.simpleMessage("اللغة الإنجليزية"),
+        "enterFirstName":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال الاسم الأول"),
+        "enterLastName":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال اسم العائلة"),
+        "enterValidEmail": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال بريد إلكتروني صحيح"),
+        "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+        "goToHome": MessageLookupByLibrary.simpleMessage("اذهب إلى الرئيسية"),
+        "gotIt": MessageLookupByLibrary.simpleMessage("فهمت"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "homeScreen": MessageLookupByLibrary.simpleMessage("الشاشة الرئيسية"),
+        "invalidEmail": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال بريد إلكتروني صالح"),
+        "invalidPassword":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال كلمة مرور صالحة"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "lastName": MessageLookupByLibrary.simpleMessage("اسم العائلة"),
+        "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "loginSuccess":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول بنجاح"),
+        "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+        "offlineCachedData": MessageLookupByLibrary.simpleMessage(
+            "أنت غير متصل حاليًا، عرض البيانات المخزنة مؤقتًا"),
+        "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "print": MessageLookupByLibrary.simpleMessage("طباعة"),
+        "rikazCompany": MessageLookupByLibrary.simpleMessage("شركة ركاز"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+        "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
+        "signUp": MessageLookupByLibrary.simpleMessage("اشترك"),
+        "totalUsers":
+            MessageLookupByLibrary.simpleMessage("إجمالي المستخدمين هو"),
+        "updateUserSuccess": MessageLookupByLibrary.simpleMessage(
+            "تم تحديث معلومات المستخدم بنجاح"),
+        "updateUsersInfo":
+            MessageLookupByLibrary.simpleMessage("تحديث معلومات المستخدمين"),
         "userListTitle":
-            MessageLookupByLibrary.simpleMessage("إدارة المستخدمين")
+            MessageLookupByLibrary.simpleMessage("إدارة المستخدمين"),
+        "usersList": MessageLookupByLibrary.simpleMessage("قائمة المستخدمين"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
+        "welcomeBackMessage": MessageLookupByLibrary.simpleMessage(
+            "نحن متحمسون لعودتك، لا يمكننا الانتظار لرؤية ما قمت به منذ آخر تسجيل دخول."),
+        "youAreOffline": MessageLookupByLibrary.simpleMessage("أنت غير متصل")
       };
 }

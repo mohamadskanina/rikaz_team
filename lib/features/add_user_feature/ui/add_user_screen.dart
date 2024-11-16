@@ -10,6 +10,7 @@ import 'package:rikaz_team/features/add_user_feature/ui/widgets/create_user_bloc
 import 'package:rikaz_team/features/add_user_feature/ui/widgets/create_user_form.dart';
 import 'package:rikaz_team/features/add_user_feature/ui/widgets/create_user_text.dart';
 import 'package:rikaz_team/features/add_user_feature/ui/widgets/upload_user_image.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class AddUserScreen extends StatelessWidget {
   const AddUserScreen({super.key});
@@ -32,7 +33,7 @@ class AddUserScreen extends StatelessWidget {
                 const CreateUserForm(),
                 verticalspace(20),
                 AppTextButton(
-                  buttonText: "Create User",
+                  buttonText: Lang.of(context).createUser,
                   textStyle: TextStyles.font16WhiteSemiBold,
                   onPressed: () {
                     validateThenDoLogin(context);

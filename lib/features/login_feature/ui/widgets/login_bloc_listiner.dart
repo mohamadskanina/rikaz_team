@@ -4,6 +4,7 @@ import 'package:rikaz_team/core/helpers/extensions.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_state.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 import 'package:rikaz_team/routes/router_screens.dart';
 import 'package:rikaz_team/routes/routes_name.dart';
 
@@ -28,7 +29,7 @@ class LoginBlocListiner extends StatelessWidget {
             );
           },
           success: (data) {
-            setupSuccessState(context, "Login User Successfuly");
+            setupSuccessState(context, Lang.of(context).loginSuccess);
           },
           failure: (error) {
             setupErrorState(context, error);
@@ -60,7 +61,7 @@ void setupErrorState(BuildContext context, String error) {
             context.pop();
           },
           child: Text(
-            'Gancel',
+            Lang.of(context).cancel,
             style: TextStyles.font14DarkBlueMedium,
           ),
         ),
@@ -90,7 +91,7 @@ void setupSuccessState(BuildContext context, String success) {
                 .navigateTo(context, RoutesNames.homePage,);
           },
           child: Text(
-            'Go To Home',
+            Lang.of(context).goToHome,
             style: TextStyles.font14DarkBlueMedium,
           ),
         ),

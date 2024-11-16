@@ -30,19 +30,19 @@ class _AppDrawerState extends State<AppDrawer> {
           ),
           ListTile(
             leading: Icon(Icons.home),
-            title: Text('Home'),
+            title: Text(Lang.of(context).home),
             onTap: () {},
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            title: Text(Lang.of(context).settings),
             onTap: () {},
           ),
           Divider(),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              'Language',
+              Lang.of(context).language,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),

@@ -5,6 +5,7 @@ import 'package:rikaz_team/core/services/services_locator.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
 import 'package:rikaz_team/features/add_user_feature/logic/bloc/createuser_bloc.dart';
 import 'package:rikaz_team/features/add_user_feature/ui/add_user_screen.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class DontHaveAccountText extends StatelessWidget {
   const DontHaveAccountText({super.key});
@@ -18,11 +19,11 @@ class DontHaveAccountText extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Don\'t have an account?',
+              text: Lang.of(context).dontHaveAccount,
               style: TextStyles.font14GrayRegular,
             ),
             TextSpan(
-              text: ' Sign Up',
+              text: Lang.of(context).signUp,
               style: TextStyles.font13BlueRegular.copyWith(fontSize: 16),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {

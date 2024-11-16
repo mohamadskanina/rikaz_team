@@ -51,7 +51,6 @@ class _MyAppState extends State<MyApp> {
               child: BlocBuilder<LanguageCubit, LanguageState>(
                 builder: (context, state) {
                   currentLocale = state.locale;
-                  print(currentLocale);
                   return MaterialApp(
                     title: 'Users Managment',
                     debugShowCheckedModeBanner: false,
@@ -66,7 +65,8 @@ class _MyAppState extends State<MyApp> {
                     localizationsDelegates: const [
                       Lang.delegate,
                       GlobalMaterialLocalizations.delegate,
-                      GlobalCupertinoLocalizations.delegate
+                      GlobalCupertinoLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate
                     ],
                     locale: currentLocale,
                     supportedLocales: Lang.delegate.supportedLocales,

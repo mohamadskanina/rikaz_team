@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rikaz_team/features/export_to_pdf/presentation/controller/cubit/pdf_cubit.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class SavePdfDialog extends StatelessWidget {
   const SavePdfDialog({super.key});
@@ -42,14 +43,14 @@ class SavePdfDialog extends StatelessWidget {
                         onPressed: () {
                           context.read<PdfCubit>().printPdfReport();
                         },
-                        label: const Text('Print'),
+                        label:  Text(Lang.of(context).print),
                         icon: Icon(Icons.print_outlined),
                       ),
                       ElevatedButton.icon(
                         onPressed: () {
                           context.read<PdfCubit>().savePdfLocalStorage();
                         },
-                        label: const Text('Save'),
+                        label:  Text(Lang.of(context).save),
                         icon: Icon(Icons.save_outlined),
                       )
                     ],

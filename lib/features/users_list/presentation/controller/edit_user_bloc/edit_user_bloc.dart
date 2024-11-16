@@ -7,6 +7,7 @@ import 'package:rikaz_team/core/services/services_locator.dart';
 import 'package:rikaz_team/core/widgets/loading_dialog_widget.dart';
 import 'package:rikaz_team/core/widgets/toast.dart';
 import 'package:rikaz_team/features/users_list/domain/usecase/update_user_info.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 import 'edit_user_state.dart';
 
 part 'edit_user_event.dart';
@@ -31,15 +32,15 @@ class EditUserBloc extends Bloc<EditUserEvent, EditUserState> {
       if (emailController.text.isEmpty ||
           !emailController.text.contains('@') ||
           !emailController.text.contains('.')) {
-        Toast().warning(context, 'Please enter correct email');
+        Toast().warning(context, Lang.current.enterValidEmail);
         return;
       }
       if (firstNameController.text.isEmpty) {
-        Toast().warning(context, 'Please enter First Nmae');
+        Toast().warning(context, Lang.current.enterFirstName);
         return;
       }
       if (lastNameController.text.isEmpty) {
-        Toast().warning(context, 'Please enter Last Nmae');
+        Toast().warning(context, Lang.current.enterLastName);
         return;
       }
       showDialog(
@@ -65,7 +66,7 @@ class EditUserBloc extends Bloc<EditUserEvent, EditUserState> {
       emit(state.copyWith(loading: false, error: false));
       if (context != null) {
         Navigator.of(context).pop();
-        Toast().success(context, 'Success update user info');
+        Toast().success(context, Lang.current.updateUserSuccess);
       }
     });
   }

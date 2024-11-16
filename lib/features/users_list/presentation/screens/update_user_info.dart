@@ -5,6 +5,7 @@ import 'package:rikaz_team/core/services/services_locator.dart';
 import 'package:rikaz_team/core/widgets/show_dialog.dart';
 import 'package:rikaz_team/features/share_employee_as_image/widget/card_gen.dart';
 import 'package:rikaz_team/features/users_list/presentation/controller/edit_user_bloc/edit_user_bloc.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 import '../../domain/entities/user.dart';
 import '../widgets/update_info_widget.dart';
@@ -34,7 +35,7 @@ class _UpdateUserInfoState extends State<UpdateUserInfo> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Update Users Info",
+          Lang.of(context).updateUsersInfo,
           style: TextStyle(
             color: Colors.blue[800],
             fontSize: 22.sp,
