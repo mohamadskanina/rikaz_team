@@ -14,4 +14,9 @@ class GetUsersUseCase extends BaseUseCase<List<User>, NoParameters> {
   ResultFuture<List<User>> call(NoParameters parameters) async {
     return await usersRepository.getUsersList();
   }
+  
+  @override
+  List<User> localCall() {
+    return usersRepository.getLocalUser();
+  }
 }

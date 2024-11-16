@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -34,8 +34,9 @@ class InternetCubit extends Cubit<InternetState> {
   Future<void> _updateConnectionStatus(List<ConnectivityResult> result) async {
     connectionStatus = result;
     bool isConnected = !connectionStatus.contains(ConnectivityResult.none);
-    if (isConnected != state.isConnected)
+    if (isConnected != state.isConnected) {
       emit(state.copyWith(isConnected: isConnected));
+    }
     print('$connectionStatus');
   }
 }

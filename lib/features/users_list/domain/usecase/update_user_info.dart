@@ -24,6 +24,11 @@ class UpdateUserInfoUseCase extends BaseUseCase<void, UpdateParameters> {
       avatar: parameters.avatar,
     ));
   }
+  
+  @override
+  void localCall() {
+    // TODO: implement localCall
+  }
 }
 
 class UpdateParameters extends Equatable {
