@@ -4,6 +4,7 @@ class ApiConstances {
 
   // Users
   static const String getUsersListUrl = "$_baseUrl/users";
+  static String updateUserUrl(int id) => "$_baseUrl/users/$id";
 
   // Login
   static const String loginUrl = "$_baseUrl/login";

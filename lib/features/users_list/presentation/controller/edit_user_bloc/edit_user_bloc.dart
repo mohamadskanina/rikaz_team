@@ -1,0 +1,88 @@
+import 'dart:async';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:rikaz_team/core/services/services_locator.dart';
+import 'package:rikaz_team/core/widgets/loading_dialog_widget.dart';
+import 'package:rikaz_team/core/widgets/toast.dart';
+import 'package:rikaz_team/features/users_list/domain/entities/user.dart';
+import 'package:rikaz_team/features/users_list/domain/usecase/update_user_info.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
+import 'edit_user_state.dart';
+
+part 'edit_user_event.dart';
+
+class EditUserBloc extends Bloc<EditUserEvent, EditUserState> {
+  final UpdateUserInfoUseCase updateUserInfoUseCase;
+
+  late TextEditingController firstNameController;
+  late TextEditingController lastNameController;
+  late TextEditingController emailController;
+
+  EditUserBloc(
+    this.updateUserInfoUseCase,
+  ) : super(const EditUserState.initial()) {
+    on<UpdateUserInfoEvent>(_updateUsersHandler);
+    on<CopyUserInfo>(_copyUserInfoHandler);
+  }
+  FutureOr<void> _updateUsersHandler(
+      UpdateUserInfoEvent event, Emitter<EditUserState> emit) async {
+    if (state.loading) return;
+    BuildContext? context = SingleInstanceService.context;
+    if (context != null) {
+      if (emailController.text.isEmpty ||
+          !emailController.text.contains('@') ||
+          !emailController.text.contains('.')) {
+        Toast().warning(context, Lang.current.enterValidEmail);
+        return;
+      }
+      if (firstNameController.text.isEmpty) {
+        Toast().warning(context, Lang.current.enterFirstName);
+        return;
+      }
+      if (lastNameController.text.isEmpty) {
+        Toast().warning(context, Lang.current.enterLastName);
+        return;
+      }
+      showDialog(
+          context: context,
+          builder: (BuildContext context) => const LoadingDialogWidget());
+    }
+    emit(state.copyWith(loading: true));
+    final result = await updateUserInfoUseCase(UpdateParameters(
+        id: event.id,
+        email: emailController.text,
+        first_name: firstNameController.text,
+        last_name: lastNameController.text,
+        avatar: ''));
+
+    result.fold((l) {
+      emit(
+          state.copyWith(errorMessage: l.message, error: true, loading: false));
+      if (context != null) {
+        Navigator.of(context).pop();
+        Toast().error(context, l.message);
+      }
+    }, (r) {
+      emit(state.copyWith(loading: false, error: false));
+      if (context != null) {
+        Navigator.of(context).pop();
+        Toast().success(context, Lang.current.updateUserSuccess);
+      }
+    });
+  }
+
+  FutureOr<void> _copyUserInfoHandler(
+      CopyUserInfo event, Emitter<EditUserState> emit) {
+    final String userData =
+        "User id: ${event.user.id}\n First name: ${event.user.first_name}\n Last name: ${event.user.last_name}\n Email: ${event.user.email}";
+    BuildContext? context = SingleInstanceService.context;
+    Clipboard.setData(ClipboardData(text: userData));
+    Toast().success(context!,
+        'Success Copy user info');
+    Share.share(userData);
+  }
+}

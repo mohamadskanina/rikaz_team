@@ -1,24 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/services/services_locator.dart';
-import '../controller/bloc/user_bloc.dart';
-import '../widgets/user_list_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rikaz_team/core/widgets/app_drawer.dart';
+import 'package:rikaz_team/core/widgets/show_dialog.dart';
+import 'package:rikaz_team/features/export_to_pdf/presentation/widgets/save_pdf_dialog.dart';
+import 'package:rikaz_team/features/users_list/presentation/controller/excel_bloc/excel_bloc.dart';
+import 'package:rikaz_team/features/users_list/presentation/controller/excel_bloc/excel_event.dart';
+import 'package:rikaz_team/features/users_list/presentation/controller/view_user_bloc/user_bloc.dart';
+import 'package:rikaz_team/features/users_list/presentation/controller/view_user_bloc/user_state.dart';
+import 'package:rikaz_team/features/users_list/presentation/widgets/Export_To_Excel/excel_bloc_listiner.dart';
+import 'package:rikaz_team/features/users_list/presentation/widgets/user_list_widget.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class ViewUsersList extends StatelessWidget {
   const ViewUsersList({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<UserBloc>()..add(GetUsersEvent()),
-      child: Scaffold(
-        appBar: AppBar(
-            title: Text(
-          "Users Managment",
-          style:
-              TextStyle(color: Colors.blue[800], fontWeight: FontWeight.bold),
-        )),
-        body: const UserListWidget(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          Lang.of(context).userListTitle,
+          style: TextStyle(
+            color: Colors.blue[800],
+            fontSize: 22,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 1,
+        iconTheme: IconThemeData(color: Colors.blue[800]),
+        actions: [
+          BlocBuilder<UserBloc, UserState>(
+            builder: (actionsContext, state) {
+              return !state.loading
+                  ? Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                          child: IconButton(
+                            icon: const Icon(Icons.picture_as_pdf),
+                            onPressed: () => ShowDialog(
+                                context: actionsContext,
+                                dialogWidget: const SavePdfDialog()),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                          child: IconButton(
+                            icon: const Icon(Icons.dataset_outlined),
+                            onPressed: () {
+                              actionsContext
+                                  .read<ExcelBloc>()
+                                  .add(ExcelEvent.exoprtToExcel(state.users));
+                            },
+                          ),
+                        ),
+                      ],
+                    )
+                  : Container();
+            },
+          ),
+        ],
+      ),
+      drawer: AppDrawer(),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
+        child: Column(
+          children: [
+            SizedBox(height: 10.h),
+            const Expanded(child: UserListWidget()),
+            const ExcelBlocListiner(),
+          ],
+        ),
       ),
     );
   }

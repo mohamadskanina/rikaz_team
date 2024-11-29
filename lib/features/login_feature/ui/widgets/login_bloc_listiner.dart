@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rikaz_team/core/helpers/extensions.dart';
+import 'package:rikaz_team/core/services/services_locator.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
+import 'package:rikaz_team/core/widgets/toast.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_state.dart';
-import 'package:rikaz_team/features/login_feature/ui/widgets/home_screen.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
+import 'package:rikaz_team/routes/router_screens.dart';
+import 'package:rikaz_team/routes/routes_name.dart';
 
 class LoginBlocListiner extends StatelessWidget {
   const LoginBlocListiner({super.key});
@@ -13,7 +17,7 @@ class LoginBlocListiner extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Failure,
+          current is Loading || current is Success || current is LoginFailure,
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
@@ -27,7 +31,7 @@ class LoginBlocListiner extends StatelessWidget {
             );
           },
           success: (data) {
-            setupSuccessState(context, "Login User Successfuly");
+            setupSuccessState(context, Lang.of(context).loginSuccess);
           },
           failure: (error) {
             setupErrorState(context, error);
@@ -59,7 +63,7 @@ void setupErrorState(BuildContext context, String error) {
             context.pop();
           },
           child: Text(
-            'Gancel',
+            Lang.of(context).cancel,
             style: TextStyles.font14DarkBlueMedium,
           ),
         ),
@@ -69,31 +73,35 @@ void setupErrorState(BuildContext context, String error) {
 }
 
 void setupSuccessState(BuildContext context, String success) {
+  BuildContext? contextwidget = SingleInstanceService.context;
   context.pop();
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      icon: const Icon(
-        Icons.check,
-        color: Colors.green,
-        size: 32,
-      ),
-      content: Text(
-        success,
-        style: TextStyles.font13BlueRegular,
-      ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()));
-          },
-          child: Text(
-            'Go To Home',
-            style: TextStyles.font14DarkBlueMedium,
-          ),
-        ),
-      ],
-    ),
-  );
+  AppRouter.router.navigateTo(context, RoutesNames.homePage);
+  Toast().success(contextwidget!, Lang.current.loginSuccess);
+
+  // showDialog(
+  //   context: context,
+  //   builder: (context) => AlertDialog(
+  //     icon: const Icon(
+  //       Icons.check,
+  //       color: Colors.green,
+  //       size: 32,
+  //     ),
+  //     content: Text(
+  //       success,
+  //       style: TextStyles.font13BlueRegular,
+  //     ),
+  //     actions: [
+  //       TextButton(
+  //         onPressed: () {
+  //           AppRouter.router
+  //               .navigateTo(context, RoutesNames.homePage,);
+  //         },
+  //         child: Text(
+  //           'Go To Home',
+  //           style: TextStyles.font14DarkBlueMedium,
+  //         ),
+  //       ),
+  //     ],
+  //   ),
+  // );
 }

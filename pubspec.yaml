@@ -28,28 +28,47 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.4.1
+  connectivity_plus: ^6.1.0
   cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
   dio: ^5.7.0
   equatable: ^2.0.5
+  excel: ^4.0.6
+  fluro: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
-  get_it: ^8.0.2
-  lottie: ^3.1.3
+  flutter_screenutil: ^5.9.3
   freezed: any
   freezed_annotation: any
-  json_serializable: any
-  flutter_screenutil: ^5.9.3
-  dartz: ^0.10.1
-  pretty_dio_logger: ^1.4.0
+  get_it: ^8.0.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  hydrated_bloc: ^9.1.5
   image_picker: ^1.1.2
+  intl: any
+  intl_utils: ^2.8.7
+  json_serializable: any
+  lottie: ^3.1.3
+  path_provider: ^2.1.5
+  pdf: ^3.11.1
+  pretty_dio_logger: ^1.4.0
+  printing: ^5.13.4
+  screenshot: ^3.0.0
+  share_plus: ^10.1.2
+  toastification: ^2.3.0
+  universal_html: ^2.2.4
+  flutter_localization: any
 
 
 dev_dependencies:
+  build_runner: any
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
-  build_runner: any  
+  freezed: any
+  hive_generator: ^2.0.1
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
@@ -60,8 +79,9 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/loading.json
+    - assets/
     - assets/images/
+    # - images/a_dot_burr.jpeg
     # - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -83,6 +103,11 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_intl:
+  enabled: true
+  class_name: Lang
+  main_locale: en_US
+  arb_dir: lib/localization/l10n
+  output_dir: lib/localization/generated

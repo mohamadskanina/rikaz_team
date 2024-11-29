@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rikaz_team/core/helpers/space_helper.dart';
+import 'package:rikaz_team/core/theming/styles.dart';
+import 'package:rikaz_team/core/widgets/app_text_button.dart';
 import 'package:rikaz_team/core/widgets/app_text_form_feild.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_bloc.dart';
 import 'package:rikaz_team/features/login_feature/logic/bloc/login_event.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class EmailAndPasswordTextFeild extends StatefulWidget {
   const EmailAndPasswordTextFeild({super.key});
@@ -17,11 +21,11 @@ class _EmailAndPasswordTextFeildState extends State<EmailAndPasswordTextFeild> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<LoginBloc>().formKey,
+      key: context.read<LoginBloc>().loginKey,
       child: Column(
         children: [
           AppTextFormField(
-            hintText: "Email",
+            hintText: Lang.of(context).email,
             controller: context.read<LoginBloc>().emailController,
             validator: (vlaue) {
               if (vlaue == null || vlaue.isEmpty) {
@@ -33,7 +37,7 @@ class _EmailAndPasswordTextFeildState extends State<EmailAndPasswordTextFeild> {
             height: 18,
           ),
           AppTextFormField(
-            hintText: "Password",
+            hintText: Lang.of(context).password,
             controller: context.read<LoginBloc>().passwordController,
             isObscureText: isObscureText,
             validator: (value) {
@@ -51,15 +55,32 @@ class _EmailAndPasswordTextFeildState extends State<EmailAndPasswordTextFeild> {
                 isObscureText ? Icons.visibility_off : Icons.visibility,
               ),
             ),
-          )
+          ),
+          verticalspace(15),
+          Align(
+            alignment: AlignmentDirectional.centerEnd,
+            child: Text(
+              'Forgot Password?',
+              style: TextStyles.font13BlueRegular,
+            ),
+          ),
+          verticalspace(30),
+          // login button
+          AppTextButton(
+            buttonText: "Login",
+            textStyle: TextStyles.font16WhiteSemiBold,
+            onPressed: () {
+              validateThenDoLogin(context);
+            },
+          ),
         ],
       ),
     );
   }
 
   void validateThenDoLogin(BuildContext context) {
-    if (context.read<LoginBloc >().formKey.currentState!.validate()) {
-      context.read<LoginEvent>();
+    if (context.read<LoginBloc>().loginKey.currentState!.validate()) {
+      context.read<LoginBloc>().add(const LoginEvent.login());
     }
   }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:rikaz_team/core/theming/styles.dart';
+import 'package:rikaz_team/routes/router_screens.dart';
+import 'package:rikaz_team/routes/routes_name.dart';
+import 'package:rikaz_team/localization/generated/l10n.dart';
 
 class DontHaveAccountText extends StatelessWidget {
   const DontHaveAccountText({super.key});
@@ -14,21 +17,15 @@ class DontHaveAccountText extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Don\'t have an account?',
+              text: Lang.of(context).dontHaveAccount,
               style: TextStyles.font14GrayRegular,
             ),
             TextSpan(
-              text: ' Sign Up',
+              text: Lang.of(context).signUp,
               style: TextStyles.font13BlueRegular.copyWith(fontSize: 16),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => BlocProvider(
-                  //               create: (context) => sl<CreateuserBloc>(),
-                  //               child: const AddUserScreen(),
-                  //             )));
+                  AppRouter.router.navigateTo(context, RoutesNames.createUser);
                 },
             ),
           ],

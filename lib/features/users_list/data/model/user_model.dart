@@ -1,30 +1,30 @@
 import 'package:rikaz_team/features/users_list/domain/entities/user.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+
 part 'user_model.g.dart'; // Required for generated code
 
 @JsonSerializable()
-// ignore: must_be_immutable
 class UserModel extends User {
-  UserModel(
+  const UserModel(
       {required super.id,
       required super.email,
-      required super.firstName,
-      required super.lastName,
+      required super.first_name,
+      required super.last_name,
       required super.avatar});
 
   UserModel copyWith({
     int? id,
     String? email,
-    String? firstName,
-    String? lastName,
+    String? first_name,
+    String? last_name,
     String? avatar,
   }) {
     return UserModel(
       id: id ?? this.id,
       email: email ?? this.email,
-      firstName: firstName ?? this.firstName,
-      lastName: lastName ?? this.lastName,
+      first_name: first_name ?? this.first_name,
+      last_name: last_name ?? this.last_name,
       avatar: avatar ?? this.avatar,
     );
   }
@@ -32,5 +32,6 @@ class UserModel extends User {
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }

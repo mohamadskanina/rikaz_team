@@ -1,20 +1,21 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
 import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-// ignore: must_be_immutable
-class User extends Equatable {
-  int id;
-  String email;
-  String firstName;
-  String lastName;
-  String avatar;
+part 'user.g.dart'; // Add this part directive for code generation
 
-  User({
+@JsonSerializable()
+class User extends Equatable{
+  final int id;
+  final String email;
+  final String first_name;
+  final String last_name;
+  final String avatar;
+
+  const User({
     required this.id,
     required this.email,
-    required this.firstName,
-    required this.lastName,
+    required this.first_name,
+    required this.last_name,
     required this.avatar,
   });
   
@@ -23,9 +24,13 @@ class User extends Equatable {
     return [
       id,
       email,
-      firstName,
-      lastName,
+      first_name,
+      last_name,
       avatar,
     ];
   }
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  Map<String, dynamic> toJson() => _$UserToJson(this);
+
 }
